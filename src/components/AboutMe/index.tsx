@@ -1,12 +1,13 @@
 import React from "react";
 import Skills from "./Skills";
+import Container from "@material-ui/core/Container";
 
 function AboutMe() {
     return (
-        <div>
+        <Container maxWidth="md">
             AboutMe
             <Skills />
-        </div>
+        </Container>
     );
 }
 
