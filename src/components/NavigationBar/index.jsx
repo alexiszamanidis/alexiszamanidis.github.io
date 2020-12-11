@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
-import { navLinks } from "./config.tsx";
+import { navLinks } from "./config";
 
 const useStyles = makeStyles({
     root: {
@@ -24,8 +24,8 @@ function NavigationBar() {
             showLabels
             className={classes.root}
         >
-            {navLinks.map((navLink) => (
-                <BottomNavigationAction {...navLink} />
+            {navLinks.map((navLink, index) => (
+                <BottomNavigationAction key={index} {...navLink} />
             ))}
         </BottomNavigation>
     );

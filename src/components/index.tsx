@@ -1,10 +1,12 @@
 import React from "react";
-import NavigationBar from "./NavigationBar/NavigationBar";
+import AboutMe from "./AboutMe";
+import NavigationBar from "./NavigationBar";
 
 function App() {
     return (
         <div>
             <NavigationBar />
+            <AboutMe />
         </div>
     );
 }
