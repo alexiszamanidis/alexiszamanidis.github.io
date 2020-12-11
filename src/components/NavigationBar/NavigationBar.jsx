@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
-import { AccountBox, Work } from "@material-ui/icons";
+import { navLinks } from "./config.tsx";
 
 const useStyles = makeStyles({
     root: {
@@ -24,8 +24,9 @@ function NavigationBar() {
             showLabels
             className={classes.root}
         >
-            <BottomNavigationAction label="ABOUT ME" icon={<AccountBox />} />
-            <BottomNavigationAction label="PORTFOLIO" icon={<Work />} />
+            {navLinks.map((navLink) => (
+                <BottomNavigationAction {...navLink} />
+            ))}
         </BottomNavigation>
     );
 }
