@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Avatar from "@material-ui/core/Avatar";
-import { aboutMe } from "../config";
+import { aboutMe } from "./config";
 import { calculateAge } from "../../../utilities";
 
 const useStyles = makeStyles((theme) => ({
@@ -35,9 +35,9 @@ function LeftPaper() {
             <Paper className={classes.paper}>
                 <Avatar alt="Alexis Zamanidis" src={aboutMe.avatar} className={classes.avatar} />
                 <div className={classes.item + " personal"}>
-                    <i className="fa fa-user"></i>
-                    Alexis Zamanidis <i className="fa fa-map-marker" aria-hidden="true"></i>
-                    Athens, Greece <i className="fa fa-birthday-cake"></i>
+                    <i className={classes.title + " fa fa-user"}></i>
+                    Alexis Zamanidis <i className={classes.title + " fa fa-map-marker"}></i>
+                    Athens, Greece <i className={classes.title + " fa fa-birthday-cake"}></i>
                     {calculateAge("1998-01-20")}
                 </div>
                 <div className={classes.item}>

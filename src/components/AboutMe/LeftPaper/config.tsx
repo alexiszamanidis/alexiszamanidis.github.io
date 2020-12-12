@@ -17,33 +17,4 @@ const aboutMe: AboutMeInterface = {
     cv: "https://drive.google.com/uc?id=1gqb_C5kko846r6uYC7grd1VRfaSxjwuG",
 };
 
-interface PassionateAboutItem {
-    name: string;
-}
-
-const passionateAbout: PassionateAboutItem[] = [
-    {
-        name: "Full Stack Development mainly with React JS, Spring Boot and MySQL",
-    },
-    {
-        name: "Machine Learning - Data Mining",
-    },
-    {
-        name: "Parallel Programming",
-    },
-];
-
-interface HobbyItem {
-    name: string;
-}
-
-const hobbies: HobbyItem[] = [
-    {
-        name: "Playing Football and Basketball",
-    },
-    {
-        name: "Calisthenics Workout",
-    },
-];
-
-export { aboutMe, passionateAbout, hobbies };
+export { aboutMe };

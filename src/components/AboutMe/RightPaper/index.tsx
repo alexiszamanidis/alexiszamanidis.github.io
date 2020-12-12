@@ -3,7 +3,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import { passionateAbout, hobbies } from "../config";
+import { passionateAbout, hobbies, contacts, buttons } from "./config";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -46,37 +46,30 @@ function RightPaper() {
                         );
                     })}
                 </div>
-
                 <div className={classes.item}>
                     <b className={classes.title}>Contact</b>
-
-                    <div className="contact">
-                        <i className="fa fa-phone"></i>
-                        +30 698-044-3908
-                    </div>
-
-                    <div className="contact">
-                        <i className="fa fa-envelope"></i>
-                        alexiszamanidis@outlook.com
-                    </div>
+                    {contacts.map((contact, index) => {
+                        return (
+                            <a key={index} href={contact.link} target="_blank" rel="noreferrer">
+                                <div className="contact">
+                                    <i className={classes.title + " " + contact.icon}></i>
+                                    {contact.name}
+                                </div>
+                            </a>
+                        );
+                    })}
                 </div>
                 <div className={classes.item}>
-                    <button className="button">
-                        <i className="fa fa-github"></i>
-                        GitHub
-                    </button>
-                    <button className="button">
-                        <i className="fa fa-gitlab"></i>
-                        GitLab
-                    </button>
-                    <button className="button">
-                        <i className="fa fa-bitbucket"></i>
-                        BitBucket
-                    </button>
-                    <button className="button">
-                        <i className="fa fa-linkedin"></i>
-                        LinkedIn
-                    </button>
+                    {buttons.map((button, index) => {
+                        return (
+                            <a key={index} href={button.link} target="_blank" rel="noreferrer">
+                                <button className="button">
+                                    <i className={button.icon}></i>
+                                    {button.name}
+                                </button>
+                            </a>
+                        );
+                    })}
                 </div>
             </Paper>
         </Grid>
