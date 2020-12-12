@@ -6,7 +6,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import { mainColumns, skillFields, skills } from "./config";
+import { mainColumns, skillFields, skillRows } from "./config";
 
 function Skills() {
     return (
@@ -15,18 +15,32 @@ function Skills() {
                 <TableHead>
                     <TableRow>
                         {mainColumns.map((column, index) => (
-                            <TableCell key={index}>
+                            <TableCell key={index} align="center">
                                 <b>{column.name.toUpperCase()}</b>
                             </TableCell>
                         ))}
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {skills.map((skill: any, index) => {
+                    {skillRows.map((skill: any, index) => {
                         return (
                             <TableRow key={index}>
                                 {skillFields.map((field: any, index) => {
-                                    return <TableCell key={index}>{skill[field.name]}</TableCell>;
+                                    return (
+                                        <TableCell key={index} align="center">
+                                            {skill[field.name].link !== "#/" ? (
+                                                <a
+                                                    href={skill[field.name].link}
+                                                    rel="noreferrer"
+                                                    target="_blank"
+                                                >
+                                                    {skill[field.name].name}
+                                                </a>
+                                            ) : (
+                                                skill[field.name].name
+                                            )}
+                                        </TableCell>
+                                    );
                                 })}
                             </TableRow>
                         );
