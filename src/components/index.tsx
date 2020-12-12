@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import AboutMe from "./AboutMe";
+
 import { tabItems } from "./config";
+import AboutMe from "./AboutMe";
+import Portfolio from "./Portfolio";
+
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import Portfolio from "./Portfolio/Portfolio";
 
 function App() {
     const [value, setValue] = useState(0);
