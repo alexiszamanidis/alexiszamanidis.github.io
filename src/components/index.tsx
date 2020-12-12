@@ -7,6 +7,7 @@ import Portfolio from "./Portfolio";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
+import Footer from "./Footer";
 
 function App() {
     const [value, setValue] = useState(0);
@@ -31,6 +32,7 @@ function App() {
                 </Tabs>
             </AppBar>
             {showTabContent()}
+            <Footer />
         </div>
     );
 }
