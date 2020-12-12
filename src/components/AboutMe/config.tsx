@@ -23,10 +23,7 @@ interface PassionateAboutItem {
 
 const passionateAbout: PassionateAboutItem[] = [
     {
-        name: "Frontend Web Development mainly with React",
-    },
-    {
-        name: "Backend Web Development mainly with Spring Boot",
+        name: "Full Stack Development mainly with React JS, Spring Boot and MySQL",
     },
     {
         name: "Machine Learning - Data Mining",

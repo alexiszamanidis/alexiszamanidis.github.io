@@ -19,8 +19,10 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(2),
         textAlign: "center",
         color: theme.palette.text.secondary,
+        height: "90%",
     },
     avatar: {
+        margin: "auto",
         width: theme.spacing(20),
         height: theme.spacing(20),
     },
@@ -44,7 +46,25 @@ function AboutMe() {
                     </Paper>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <Paper className={classes.paper}>xs=12 sm=6</Paper>
+                    <Paper className={classes.paper}>
+                        <b>Passionate about</b>
+                        {passionateAbout.map((item, index) => {
+                            return (
+                                <div key={index}>
+                                    {item.name} <br />
+                                </div>
+                            );
+                        })}
+                        <br />
+                        <b>Hobbies</b>
+                        {hobbies.map((item, index) => {
+                            return (
+                                <div key={index}>
+                                    {item.name} <br />
+                                </div>
+                            );
+                        })}
+                    </Paper>
                 </Grid>
             </Grid>
             <Skills />
