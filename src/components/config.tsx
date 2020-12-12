@@ -1,13 +1,13 @@
 import { AccountBox, Work } from "@material-ui/icons";
 
-interface NavItem {
+interface TabItem {
     label: string;
     icon: JSX.Element;
 }
 
-const navLinks: NavItem[] = [
+const tabItems: TabItem[] = [
     { label: "ABOUT ME", icon: <AccountBox /> },
     { label: "PORTFOLIO", icon: <Work /> },
 ];
 
-export { navLinks };
+export { tabItems };
