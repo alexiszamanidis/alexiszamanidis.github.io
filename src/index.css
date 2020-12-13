@@ -30,6 +30,12 @@ button:focus {
     margin-right: 5px;
 }
 
+.MuiCard-root {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .footer {
     position: fixed;
     left: 0;
