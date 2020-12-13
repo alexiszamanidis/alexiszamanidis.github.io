@@ -47,7 +47,6 @@ function GitHub() {
     useEffect(() => {
         GitHubService.getUserRepositories("alexiszamanidis")
             .then(({ data }) => {
-                console.log(data[0]);
                 setGitHubRepositories(data);
                 setLoading(false);
             })

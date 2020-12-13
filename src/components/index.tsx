@@ -20,18 +20,20 @@ function App() {
 
     return (
         <div>
-            <AppBar position="static" color="default">
-                <Tabs
-                    value={value}
-                    onChange={(event, newValue) => setValue(newValue)}
-                    variant="fullWidth"
-                >
-                    {tabItems.map((tabItem, index) => {
-                        return <Tab key={index} {...tabItem} />;
-                    })}
-                </Tabs>
-            </AppBar>
-            {showTabContent()}
+            <div className="content">
+                <AppBar position="static" color="default">
+                    <Tabs
+                        value={value}
+                        onChange={(event, newValue) => setValue(newValue)}
+                        variant="fullWidth"
+                    >
+                        {tabItems.map((tabItem, index) => {
+                            return <Tab key={index} {...tabItem} />;
+                        })}
+                    </Tabs>
+                </AppBar>
+                {showTabContent()}
+            </div>
             <Footer />
         </div>
     );
