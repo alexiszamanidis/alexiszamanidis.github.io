@@ -26,6 +26,7 @@ const skillFields: MainSkillFields[] = [
     { name: "otherTools" },
 ];
 
+// eslint-disable-next-line
 interface Skill {
     name: string;
     link: string;
