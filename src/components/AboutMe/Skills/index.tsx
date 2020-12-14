@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -8,7 +8,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { mainColumns, skillFields, skillRows } from "./config";
 
-function Skills() {
+const Skills: FC = () => {
     return (
         <TableContainer component={Paper}>
             <Table aria-label="simple table">
@@ -49,6 +49,6 @@ function Skills() {
             </Table>
         </TableContainer>
     );
-}
+};
 
 export default Skills;

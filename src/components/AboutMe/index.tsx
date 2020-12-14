@@ -1,32 +1,20 @@
-import React from "react";
+import React, { FC } from "react";
 import Skills from "./Skills";
 import LeftPaper from "./LeftPaper";
 import RightPaper from "./RightPaper";
-import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-    },
-    grid: {
-        marginTop: "10px",
-        marginBottom: "10px",
-    },
-}));
-
-function AboutMe() {
-    const classes = useStyles();
+const AboutMe: FC = () => {
     return (
-        <Container maxWidth="md" className={classes.root}>
-            <Grid container spacing={3} className={classes.grid}>
+        <Container maxWidth="md">
+            <Grid container spacing={3} style={{ marginTop: "10px", marginBottom: "10px" }}>
                 <LeftPaper />
                 <RightPaper />
             </Grid>
             <Skills />
         </Container>
     );
-}
+};
 
 export default AboutMe;

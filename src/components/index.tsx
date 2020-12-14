@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 
 import { tabItems } from "./config";
 import AboutMe from "./AboutMe";
@@ -9,8 +9,8 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Footer from "./Footer";
 
-function App() {
-    const [value, setValue] = useState(0);
+const App: FC = () => {
+    const [value, setValue] = useState<number>(0);
 
     const showTabContent = () => {
         if (value === 0) return <AboutMe />;
@@ -37,6 +37,6 @@ function App() {
             <Footer />
         </div>
     );
-}
+};
 
 export default App;

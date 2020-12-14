@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { FC, useState, useEffect } from "react";
 import GitHubService from "../../../services/GitHub";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -30,10 +30,10 @@ interface GitHubRepository {
     forks_count: number;
 }
 
-function GitHub() {
+const GitHub: FC = () => {
     const [gitHubRepositories, setGitHubRepositories] = useState<GitHubRepository[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(false);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<boolean | object>(false);
 
     const classes = useStyles();
 
@@ -72,6 +72,6 @@ function GitHub() {
             </Grid>
         </div>
     );
-}
+};
 
 export default GitHub;

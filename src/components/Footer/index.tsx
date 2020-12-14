@@ -1,6 +1,6 @@
-import React from "react";
+import React, { FC } from "react";
 
-function Footer() {
+const Footer: FC = () => {
     return (
         <div className="footer">
             <p>
@@ -10,11 +10,11 @@ function Footer() {
                     href="https://github.com/alexiszamanidis"
                     target="_blank"
                 >
-                    {" alexiszamanidis"}
+                    <b>{" alexiszamanidis"}</b>
                 </a>
             </p>
         </div>
     );
-}
+};
 
 export default Footer;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function RightPaper() {
+const RightPaper: FC = () => {
     const classes = useStyles();
 
     return (
@@ -74,6 +74,6 @@ function RightPaper() {
             </Paper>
         </Grid>
     );
-}
+};
 
 export default RightPaper;
