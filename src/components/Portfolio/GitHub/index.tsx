@@ -2,13 +2,9 @@ import React, { useState, useEffect } from "react";
 import GitHubService from "../../../services/GitHub";
 
 import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Alert from "@material-ui/lab/Alert";
+import CardComponent from "./CardComponent";
 
 const useStyles = makeStyles({
     root: {
@@ -18,9 +14,6 @@ const useStyles = makeStyles({
     grid: {
         marginTop: "10px",
         marginBottom: "10px",
-    },
-    card: {
-        height: "100%",
     },
     icon: {
         textAlign: "center",
@@ -66,30 +59,13 @@ function GitHub() {
                 {gitHubRepositories.map((repo) => {
                     return (
                         <Grid item xs={12} sm={4} md={4} key={repo.id}>
-                            <Card className={classes.card}>
-                                <CardContent>
-                                    <Typography color="textSecondary" gutterBottom>
-                                        {repo.name}
-                                    </Typography>
-                                    <Typography>{repo.description}</Typography>
-                                    <Typography>
-                                        <b>language</b>: {repo.language}{" "}
-                                        <i className={"fa fa-star"}></i>
-                                        {` ${repo.stargazers_count} `}
-                                        <i className="fa fa-code-fork"></i>
-                                        {` ${repo.forks_count} `}
-                                    </Typography>
-                                </CardContent>
-                                <CardActions>
-                                    <Button size="small">
-                                        <i
-                                            style={{ marginRight: "5px" }}
-                                            className={"fa fa-github"}
-                                        ></i>
-                                        View on GitHub
-                                    </Button>
-                                </CardActions>
-                            </Card>
+                            <CardComponent
+                                name={repo.name}
+                                description={repo.description}
+                                language={repo.language}
+                                stargazers_count={repo.stargazers_count}
+                                forks_count={repo.forks_count}
+                            />
                         </Grid>
                     );
                 })}
