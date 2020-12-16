@@ -1,7 +1,6 @@
 ## ALEXISZAMANIDIS.GITHUB.IO
 
-A minimal page developed using **React, Typescript** and deployed with **GitHub pages**.
-It uses GitHub API to fetch my Personal Data and my Projects.
+A minimal Portfolio Web page developed using **React, TypeScript and Material-UI**. It is deployed with **GitHub pages** and uses GitHub API to fetch my Personal Data and my Projects.
 
 ![app_diagram](https://user-images.githubusercontent.com/48658768/93704793-cd4b2280-fb20-11ea-8828-9995b23adc8d.png)
 
@@ -24,3 +23,5 @@ You can run my Application in a Docker by running the script `runDocker.sh`
 | PORT  | \-p  | 3000    |
 | IMAGE | \-i  | docker  |
 | TAG   | \-t  | 1       |
+
+You can check out my **old Portfolio Page** [**here**](https://alexiszamanidis.github.io/old_portfolio)
