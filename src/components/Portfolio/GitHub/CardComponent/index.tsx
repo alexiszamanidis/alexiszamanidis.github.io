@@ -12,12 +12,14 @@ function CardComponent({
     language,
     stargazers_count,
     forks_count,
+    html_url,
 }: {
     name: string;
     description: string;
     language: string;
     stargazers_count: number;
     forks_count: number;
+    html_url: string;
 }) {
     return (
         <Card style={{ height: "100%" }}>
@@ -34,10 +36,12 @@ function CardComponent({
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">
-                    <i style={{ marginRight: "5px" }} className={"fa fa-github"}></i>
-                    View on GitHub
-                </Button>
+                <a href={html_url} target="_blank" rel="noreferrer">
+                    <Button size="small">
+                        <i style={{ marginRight: "5px" }} className={"fa fa-github"}></i>
+                        View on GitHub
+                    </Button>
+                </a>
             </CardActions>
         </Card>
     );

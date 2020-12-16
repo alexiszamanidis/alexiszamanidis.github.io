@@ -28,6 +28,7 @@ interface GitHubRepository {
     language: string;
     stargazers_count: number;
     forks_count: number;
+    html_url: string;
 }
 
 const GitHub: FC = () => {
@@ -65,6 +66,7 @@ const GitHub: FC = () => {
                                 language={repo.language}
                                 stargazers_count={repo.stargazers_count}
                                 forks_count={repo.forks_count}
+                                html_url={repo.html_url}
                             />
                         </Grid>
                     );
