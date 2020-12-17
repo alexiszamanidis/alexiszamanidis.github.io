@@ -7,6 +7,7 @@ import Avatar from "@material-ui/core/Avatar";
 import { calculateAge } from "../../../utilities";
 import GitHub from "../../../services/GitHub";
 import Alert from "@material-ui/lab/Alert";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -44,6 +45,7 @@ const LeftPaper: FC = () => {
         location: "",
         bio: "",
     });
+    const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState(false);
 
     useEffect(() => {
@@ -58,6 +60,9 @@ const LeftPaper: FC = () => {
             })
             .catch((error) => {
                 setError(error);
+            })
+            .finally(() => {
+                setLoading(false);
             });
     }, []);
 
@@ -66,6 +71,8 @@ const LeftPaper: FC = () => {
             <Paper className={classes.paper}>
                 {error === true ? (
                     <Alert severity="error">Something happened</Alert>
+                ) : loading === true ? (
+                    <CircularProgress />
                 ) : (
                     <div>
                         <Avatar

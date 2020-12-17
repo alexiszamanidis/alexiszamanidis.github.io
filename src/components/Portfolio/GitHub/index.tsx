@@ -42,10 +42,11 @@ const GitHub: FC = () => {
         GitHubService.getUserRepositories("alexiszamanidis")
             .then(({ data }) => {
                 setGitHubRepositories(data);
-                setLoading(false);
             })
             .catch((error) => {
                 setError(error);
+            })
+            .finally(() => {
                 setLoading(false);
             });
     }, []);
