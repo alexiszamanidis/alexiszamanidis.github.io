@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getOptions } from "./config";
 
 // const clientId = "";
 // const clientSecret = "";
@@ -12,11 +13,15 @@ class GitHubService {
     }
 
     getUserData(username: string) {
-        return axios.get(this.basePath + "/users/" + username);
+        return axios(getOptions(`${this.basePath}`, `/users/${username}`));
     }
 
     getUserRepositories(username: string) {
-        return axios.get(this.basePath + "/users/" + username + "/repos");
+        return axios(getOptions(`${this.basePath}`, `/users/${username}/repos`));
+    }
+
+    getRepositoryTopics(username: string, repository: string) {
+        return axios(getOptions(`${this.basePath}`, `/users/${username}/${repository}/topics`));
     }
 }
 

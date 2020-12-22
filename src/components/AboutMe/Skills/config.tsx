@@ -48,7 +48,7 @@ const skills = {
         { name: "React JS", link: "https://github.com/alexiszamanidis/alexiszamanidis.github.io" },
     ],
     backend: [{ name: "Spring Boot", link: "https://gitlab.com/alexiszamanidis/spring_boot" }],
-    databases: [{ name: "MySQL", link: "" }],
+    databases: [{ name: "MySQL", link: "#/" }],
     ide: [
         { name: "VS Code", link: "#/" },
         { name: "Eclipse", link: "#/" },

@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
@@ -8,6 +8,7 @@ import { calculateAge } from "../../../utilities";
 import GitHub from "../../../services/GitHub";
 import Alert from "@material-ui/lab/Alert";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import { useQuery } from "react-query";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -29,67 +30,37 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-interface UserDataFields {
-    name: string;
-    avatar_url: string;
-    location: string;
-    bio: string;
-}
-
 const LeftPaper: FC = () => {
     const classes = useStyles();
 
-    const [userData, setUserData] = useState<UserDataFields>({
-        name: "",
-        avatar_url: "",
-        location: "",
-        bio: "",
-    });
-    const [loading, setLoading] = useState<boolean>(true);
-    const [error, setError] = useState(false);
-
-    useEffect(() => {
-        GitHub.getUserData("alexiszamanidis")
-            .then(({ data }) => {
-                setUserData({
-                    name: data.name,
-                    avatar_url: data.avatar_url,
-                    location: data.location,
-                    bio: data.bio,
-                });
-            })
-            .catch((error) => {
-                setError(error);
-            })
-            .finally(() => {
-                setLoading(false);
-            });
-    }, []);
+    const { isLoading, isError, data } = useQuery("userData", () =>
+        GitHub.getUserData("alexiszamanidis").then(({ data }) => data)
+    );
 
     return (
         <Grid item xs={12} sm={6}>
             <Paper className={classes.paper}>
-                {error === true ? (
+                {isError ? (
                     <Alert severity="error">Something happened</Alert>
-                ) : loading === true ? (
+                ) : isLoading ? (
                     <CircularProgress />
                 ) : (
                     <div>
                         <Avatar
                             alt="Alexis Zamanidis"
-                            src={userData.avatar_url}
+                            src={data.avatar_url}
                             className={classes.avatar}
                         />
                         <div className={classes.item + " personal"}>
                             <i className={classes.title + " fa fa-user"}></i>
-                            {userData.name} <i className={classes.title + " fa fa-map-marker"}></i>
-                            {userData.location}{" "}
+                            {data.name} <i className={classes.title + " fa fa-map-marker"}></i>
+                            {data.location}{" "}
                             <i className={classes.title + " fa fa-birthday-cake"}></i>
                             {calculateAge("1998-01-20")}
                         </div>
                         <div className={classes.item}>
                             <b className={classes.title}>Summary</b> <br />
-                            {userData.bio}
+                            {data.bio}
                         </div>
                     </div>
                 )}

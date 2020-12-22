@@ -5,6 +5,15 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles({
+    root: {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+    },
+});
 
 function CardComponent({
     name,
@@ -21,8 +30,9 @@ function CardComponent({
     forks_count: number;
     html_url: string;
 }) {
+    const classes = useStyles();
     return (
-        <Card style={{ height: "100%" }}>
+        <Card className={classes.root} style={{ height: "100%" }}>
             <CardContent>
                 <Typography color="textSecondary" gutterBottom>
                     {name}
