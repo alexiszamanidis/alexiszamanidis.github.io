@@ -1,19 +1,24 @@
 import React, { FC } from "react";
-import Skills from "./Skills";
 import LeftPaper from "./LeftPaper";
 import RightPaper from "./RightPaper";
+import Skills from "./Skills";
+import Experience from "./Experience";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
+import { Box } from "@material-ui/core";
 
 const AboutMe: FC = () => {
     return (
-        <Container maxWidth="md">
-            <Grid container spacing={3} style={{ marginTop: "10px", marginBottom: "10px" }}>
-                <LeftPaper />
-                <RightPaper />
-            </Grid>
-            <Skills />
-        </Container>
+        <Box mt={3}>
+            <Container>
+                <Grid container spacing={3}>
+                    <LeftPaper />
+                    <RightPaper />
+                </Grid>
+                <Skills />
+                <Experience />
+            </Container>
+        </Box>
     );
 };
 
