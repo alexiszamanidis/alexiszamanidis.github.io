@@ -11,7 +11,13 @@ import { Box, Typography } from "@material-ui/core";
 
 const Skills: FC = () => {
     return (
-        <Box mt={3}>
+        <Box
+            mt={3}
+            display="flex"
+            justifyContent="center"
+            flexDirection="column"
+            alignItems="center"
+        >
             <Typography variant="h4" gutterBottom>
                 Technical Skills
             </Typography>

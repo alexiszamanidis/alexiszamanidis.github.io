@@ -14,7 +14,7 @@ import { Box, Button } from "@material-ui/core";
 
 const Experience: FC = () => {
     return (
-        <Box mt={3}>
+        <Box mt={3} display="flex" flexDirection="column" alignItems="center">
             <Typography variant="h4" gutterBottom>
                 Experience
             </Typography>

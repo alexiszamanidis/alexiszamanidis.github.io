@@ -4,14 +4,14 @@ import { FC } from "react";
 const useStyles = makeStyles((theme) => ({
     root: {
         padding: theme.spacing(1, 1),
-        backgroundColor: "#f5f5f5",
-        color: "black",
+        backgroundColor: "#3F51B5",
+        color: "white",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
     },
     a: {
-        color: "#096",
+        color: "white",
         fontSize: "15px",
     },
 }));

@@ -18,13 +18,17 @@ button:focus {
 
 .button {
     color: #fff;
-    background-color: rgb(61, 61, 61);
+    background-color: #3f51b5;
     margin: 5px 5px;
+    border-radius: 5px;
+    padding: 6px;
+    border: none;
 }
 
 .button:hover {
     color: #fff;
-    background: black;
+    background: #3f51d9;
+    cursor: pointer;
 }
 
 .button i {
