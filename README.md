@@ -1,6 +1,6 @@
 ## ALEXISZAMANIDIS.GITHUB.IO
 
-A minimal Portfolio Web page developed using **React, TypeScript and Material-UI**. It is deployed with **GitHub pages** and uses GitHub API to fetch my Personal Data and my Projects.
+A minimal Portfolio Web page developed using **React JS, TypeScript and Material-UI**. It is deployed with **GitHub pages** and uses GitHub API to fetch my Personal Data and my Projects.
 
 ![app_diagram](https://user-images.githubusercontent.com/48658768/93704793-cd4b2280-fb20-11ea-8828-9995b23adc8d.png)
 
