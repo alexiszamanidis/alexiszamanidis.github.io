@@ -19,7 +19,7 @@ const Skills: FC = () => {
             alignItems="center"
         >
             <Typography variant="h4" gutterBottom>
-                Technical Skills
+                TECHNICAL SKILLS
             </Typography>
             <TableContainer component={Paper}>
                 <Table>

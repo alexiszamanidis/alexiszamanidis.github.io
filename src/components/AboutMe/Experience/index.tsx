@@ -16,7 +16,7 @@ const Experience: FC = () => {
     return (
         <Box mt={3} display="flex" flexDirection="column" alignItems="center">
             <Typography variant="h4" gutterBottom>
-                Experience
+                EXPERIENCE
             </Typography>
             <Timeline align="left">
                 {experience.map((exp, expIndex) => {
