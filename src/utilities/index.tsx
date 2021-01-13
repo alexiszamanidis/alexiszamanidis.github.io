@@ -1,5 +1,5 @@
-export const trimString = (string: string, limit: number): string => {
-    return string != null
+export const trimString = (string: string | null, limit: number): string => {
+    return string !== null
         ? string.length <= limit
             ? string
             : string.substring(0, limit) + "..."

@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import GitHubService from "../../../services/GitHub";
+import GitHubService from "../../../services/GitHub/GitHub";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";

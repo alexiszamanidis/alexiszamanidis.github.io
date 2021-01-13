@@ -19,8 +19,8 @@ const useStyles = makeStyles((theme) => ({
 const Copyright: FC = () => {
     const classes = useStyles();
     return (
-        <h5>
-            &copy; {new Date().getFullYear()} Copyright:{" "}
+        <h5 className="copyright">
+            © {new Date().getFullYear()} Copyright:
             <a rel="noopener noreferrer" href="https://github.com/alexiszamanidis" target="_blank">
                 <b className={classes.a}>{" Alexis Zamanidis"}</b>
             </a>

@@ -5,7 +5,7 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Avatar from "@material-ui/core/Avatar";
 import { calculateAge } from "../../../utilities";
-import GitHub from "../../../services/GitHub";
+import GitHub from "../../../services/GitHub/GitHub";
 import Alert from "@material-ui/lab/Alert";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { useQuery } from "react-query";
@@ -40,10 +40,10 @@ const LeftPaper: FC = () => {
     return (
         <Grid item xs={12} sm={6}>
             <Paper className={classes.paper}>
-                {isError ? (
-                    <Alert severity="error">Something happened</Alert>
-                ) : isLoading ? (
+                {isLoading ? (
                     <CircularProgress />
+                ) : isError ? (
+                    <Alert severity="error">Something happened</Alert>
                 ) : (
                     <div>
                         <Avatar

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getOptions } from "./config";
+import { getOptions } from "../config";
 
 // const clientId = "";
 // const clientSecret = "";
