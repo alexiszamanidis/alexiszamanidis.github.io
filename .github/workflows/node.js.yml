@@ -1,0 +1,54 @@
+name: Node.js CI/CD
+
+on:
+    push:
+        branches: [master]
+    pull_request:
+        branches: [master]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+                node-version: [14.x]
+
+        steps:
+            - name: Run actions/checkout@v2
+              uses: actions/checkout@v2
+
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v1
+              with:
+                  node-version: ${{ matrix.node-version }}
+
+            - name: Restore node_modules from cache
+              uses: actions/cache@v2
+              with:
+                  path: |
+                      node_modules
+                      */*/node_modules
+                  key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+
+            - name: Install Packages
+              run: npm install
+
+            - name: Test
+              run: npm test
+
+            - name: Build
+              run: npm run build
+
+            - name: Deploy to GitHub Pages
+              run: |
+                  git config --global user.name $user_name
+                  git config --global user.email $user_email
+                  git remote set-url origin https://${github_token}@github.com/${repository}
+                  npm run deploy
+              env:
+                  CI: true
+                  user_name: "github-actions[bot]"
+                  user_email: "github-actions[bot]@users.noreply.github.com"
+                  github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
+                  repository: ${{ github.repository }}
