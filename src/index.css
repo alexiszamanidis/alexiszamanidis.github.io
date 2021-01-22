@@ -12,30 +12,11 @@ a:active {
     text-decoration: none;
 }
 
-button:focus {
-    outline: none;
-}
-
-.button {
-    color: #fff;
-    background-color: #3f51b5;
-    margin: 5px 5px;
-    border-radius: 5px;
-    padding: 6px;
-    border: none;
-}
-
-.button:hover {
-    color: #fff;
-    background: #3f51d9;
-    cursor: pointer;
-}
-
-.button i {
-    margin-right: 5px;
-}
-
 .contact i,
 .personal i {
     margin-right: 5px;
+}
+
+.underline:hover {
+    text-decoration: underline;
 }

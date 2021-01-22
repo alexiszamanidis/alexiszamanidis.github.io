@@ -21,7 +21,12 @@ const Copyright: FC = () => {
     return (
         <h5 className="copyright">
             © {new Date().getFullYear()} Copyright:
-            <a rel="noopener noreferrer" href="https://github.com/alexiszamanidis" target="_blank">
+            <a
+                className="underline"
+                rel="noopener noreferrer"
+                href="https://github.com/alexiszamanidis"
+                target="_blank"
+            >
                 <b className={classes.a}>{" Alexis Zamanidis"}</b>
             </a>
         </h5>

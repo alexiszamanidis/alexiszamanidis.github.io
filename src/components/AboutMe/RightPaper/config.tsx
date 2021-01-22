@@ -1,10 +1,14 @@
+import ReceiptIcon from "@material-ui/icons/Receipt";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import GitHubIcon from "@material-ui/icons/GitHub";
+
 interface PassionateAboutItem {
     name: string;
 }
 
 const passionateAbout: PassionateAboutItem[] = [
     {
-        name: "Full Stack Development mainly with React JS, Spring Boot and MySQL",
+        name: "Full Stack Development mainly with React.js, Spring Boot and MySQL",
     },
     {
         name: "Machine Learning - Data Mining",
@@ -47,25 +51,25 @@ const contacts: ContactItem[] = [
 ];
 
 interface ButtonItem {
-    icon: string;
-    name: string;
+    text: string;
+    icon: any;
     link: string;
 }
 
 const buttons: ButtonItem[] = [
     {
-        icon: "fa fa-file",
-        name: "CV",
+        text: "CV",
+        icon: <ReceiptIcon />,
         link: "https://drive.google.com/uc?id=1gqb_C5kko846r6uYC7grd1VRfaSxjwuG",
     },
     {
-        icon: "fa fa-linkedin",
-        name: "LinkedIn",
+        text: "LinkedIn",
+        icon: <LinkedInIcon />,
         link: "http://linkedin.com/in/alexiszamanidis",
     },
     {
-        icon: "fa fa-github",
-        name: "GitHub",
+        text: "GitHub",
+        icon: <GitHubIcon />,
         link: "https://github.com/alexiszamanidis",
     },
 ];

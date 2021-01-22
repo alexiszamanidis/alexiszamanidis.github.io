@@ -1,9 +1,9 @@
 import React, { FC } from "react";
-
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import { passionateAbout, hobbies, contacts, buttons } from "./config";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -17,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
     },
     item: {
         margin: "15px",
+    },
+    button: {
+        marginRight: "5px",
     },
 }));
 
@@ -50,7 +53,13 @@ const RightPaper: FC = () => {
                     <b className={classes.title}>Contact</b>
                     {contacts.map((contact, index) => {
                         return (
-                            <a key={index} href={contact.link} target="_blank" rel="noreferrer">
+                            <a
+                                key={index}
+                                href={contact.link}
+                                className="underline"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
                                 <div className="contact">
                                     <i className={classes.title + " " + contact.icon}></i>
                                     {contact.name}
@@ -63,10 +72,14 @@ const RightPaper: FC = () => {
                     {buttons.map((button, index) => {
                         return (
                             <a key={index} href={button.link} target="_blank" rel="noreferrer">
-                                <button className="button">
-                                    <i className={button.icon}></i>
-                                    {button.name}
-                                </button>
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    className={classes.button}
+                                    startIcon={button.icon}
+                                >
+                                    {button.text}
+                                </Button>
                             </a>
                         );
                     })}
