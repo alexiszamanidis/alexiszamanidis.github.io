@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
@@ -19,7 +19,15 @@ const useStyles = makeStyles((theme) => ({
         margin: "15px",
     },
     button: {
-        marginRight: "5px",
+        margin: "5px 5px 5px 5px",
+        color: "white",
+        outline: "0px solid white",
+        transition: "outline-offset 250ms ease",
+        borderRadius: "0",
+        "&:hover, &:focus": {
+            outline: "2px solid white",
+            outlineOffset: "-5px",
+        },
     },
 }));
 

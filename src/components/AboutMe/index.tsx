@@ -1,7 +1,6 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import LeftPaper from "./LeftPaper";
 import RightPaper from "./RightPaper";
-import Skills from "./Skills";
 import Experience from "./Experience";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
@@ -15,7 +14,6 @@ const AboutMe: FC = () => {
                     <LeftPaper />
                     <RightPaper />
                 </Grid>
-                <Skills />
                 <Experience />
             </Container>
         </Box>

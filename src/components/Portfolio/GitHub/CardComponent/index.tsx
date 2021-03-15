@@ -1,5 +1,3 @@
-import React from "react";
-
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -12,6 +10,17 @@ const useStyles = makeStyles({
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
+    },
+    button: {
+        margin: "5px 5px 5px 5px",
+        color: "white",
+        outline: "0px solid white",
+        transition: "outline-offset 250ms ease",
+        borderRadius: "0",
+        "&:hover, &:focus": {
+            outline: "2px solid white",
+            outlineOffset: "-5px",
+        },
     },
 });
 
@@ -47,7 +56,12 @@ function CardComponent({
             </CardContent>
             <CardActions>
                 <a href={html_url} target="_blank" rel="noreferrer">
-                    <Button size="small">
+                    <Button
+                        className={classes.button}
+                        size="small"
+                        variant="contained"
+                        color="primary"
+                    >
                         <i style={{ marginRight: "5px" }} className={"fa fa-github"}></i>
                         View on GitHub
                     </Button>
