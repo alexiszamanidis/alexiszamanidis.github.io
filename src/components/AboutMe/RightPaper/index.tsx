@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import { passionateAbout, hobbies, contacts, buttons } from "./config";
-import Button from "@material-ui/core/Button";
+import CustomButton from "../../Button";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -17,17 +17,6 @@ const useStyles = makeStyles((theme) => ({
     },
     item: {
         margin: "15px",
-    },
-    button: {
-        margin: "5px 5px 5px 5px",
-        color: "white",
-        outline: "0px solid white",
-        transition: "outline-offset 250ms ease",
-        borderRadius: "0",
-        "&:hover, &:focus": {
-            outline: "2px solid white",
-            outlineOffset: "-5px",
-        },
     },
 }));
 
@@ -79,16 +68,13 @@ const RightPaper: FC = () => {
                 <div className={classes.item}>
                     {buttons.map((button, index) => {
                         return (
-                            <a key={index} href={button.link} target="_blank" rel="noreferrer">
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    className={classes.button}
-                                    startIcon={button.icon}
-                                >
-                                    {button.text}
-                                </Button>
-                            </a>
+                            <CustomButton
+                                key={index}
+                                link={button.link}
+                                size="medium"
+                                icon={button.icon}
+                                text={button.text}
+                            />
                         );
                     })}
                 </div>
