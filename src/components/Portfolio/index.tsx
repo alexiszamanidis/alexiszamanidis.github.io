@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import GitHub from "./GitHub";
 import Container from "@material-ui/core/Container";
 

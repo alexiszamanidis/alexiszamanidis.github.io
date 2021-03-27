@@ -1,26 +1,11 @@
-import React, { FC } from "react";
+import { FC, useMemo, useState } from "react";
 import GitHubService from "../../../services/GitHub/GitHub";
-
-import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
 import Alert from "@material-ui/lab/Alert";
 import CardComponent from "./CardComponent";
 import { useQuery } from "react-query";
-
-const useStyles = makeStyles({
-    root: {
-        width: "300px",
-        margin: "30px",
-    },
-    grid: {
-        marginTop: "10px",
-        marginBottom: "10px",
-    },
-    icon: {
-        textAlign: "center",
-        marginTop: "10px",
-    },
-});
+import { TextField, Grid, FormControl, InputLabel, Select, Tooltip } from "@material-ui/core";
+import useDebounce from "../../CustomHooks/useDebounce";
+import { useStyles } from "./styles";
 
 const GitHub: FC = () => {
     const classes = useStyles();
@@ -35,6 +20,54 @@ const GitHub: FC = () => {
         </div>
     );
 
+    const [search, setSearch] = useState("");
+    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearch(e.target.value);
+    };
+    const debouncedSearch = useDebounce(search, 500);
+
+    const [selectedLanguage, setSelectedLanguage] = useState("");
+    const handleLanguage = (e: any) => {
+        setSelectedLanguage(e.target.value);
+    };
+    const languages = useMemo(() => {
+        if (data === undefined) return [];
+        let uniqueLanguages = new Set<string>(
+            data
+                .filter(
+                    ({ language }: { language: string | null }) =>
+                        language !== null && language !== ""
+                )
+                .map(({ language }: { language: string }) => language)
+        );
+        return Array.from(uniqueLanguages);
+    }, [data]);
+
+    const computedData = useMemo(() => {
+        if (data === undefined) return [];
+        let tempRepositories = data;
+        if (debouncedSearch.length > 0) {
+            tempRepositories = tempRepositories.filter(
+                ({ name, description }: { name: string; description: string }) => {
+                    return (
+                        name.toString().toLowerCase().includes(debouncedSearch.toLowerCase()) ||
+                        description.toString().toLowerCase().includes(debouncedSearch.toLowerCase())
+                    );
+                }
+            );
+        }
+
+        if (selectedLanguage.length > 0) {
+            tempRepositories = tempRepositories.filter(
+                ({ language }: { language: string | null }) => {
+                    return language === selectedLanguage;
+                }
+            );
+        }
+
+        return tempRepositories;
+    }, [data, debouncedSearch, selectedLanguage]);
+
     return (
         <div>
             {isLoading ? (
@@ -44,8 +77,36 @@ const GitHub: FC = () => {
             ) : (
                 <div>
                     {gitHubFaIcon}
+                    <div className={classes.searchFields}>
+                        <Tooltip title="Filter by Repository Name, Description" placement="top">
+                            <TextField
+                                label="Search"
+                                variant="outlined"
+                                className={classes.search}
+                                onChange={handleSearch}
+                            />
+                        </Tooltip>
+                        <FormControl variant="outlined" className={classes.select}>
+                            <InputLabel>Language</InputLabel>
+                            <Select
+                                native
+                                label="Language"
+                                value={selectedLanguage}
+                                onChange={handleLanguage}
+                            >
+                                <option value="" />
+                                {languages.map((language, index) => {
+                                    return (
+                                        <option key={index} value={language}>
+                                            {language}
+                                        </option>
+                                    );
+                                })}
+                            </Select>
+                        </FormControl>
+                    </div>
                     <Grid container spacing={3} className={classes.grid}>
-                        {data.map((repo: any) => {
+                        {computedData.map((repo: any) => {
                             return (
                                 <Grid item xs={12} sm={4} md={4} key={repo.id}>
                                     <CardComponent
