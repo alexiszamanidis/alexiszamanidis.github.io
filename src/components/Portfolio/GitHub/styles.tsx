@@ -5,10 +5,6 @@ const useStyles = makeStyles({
         width: "300px",
         margin: "30px",
     },
-    grid: {
-        marginTop: "10px",
-        marginBottom: "10px",
-    },
     icon: {
         textAlign: "center",
         marginTop: "10px",

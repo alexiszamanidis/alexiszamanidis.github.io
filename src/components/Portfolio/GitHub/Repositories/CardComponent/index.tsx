@@ -3,7 +3,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core";
-import CustomButton from "../../../Button";
+import CustomButtonLink from "../../../../CustomButtonLink";
 
 const useStyles = makeStyles({
     root: {
@@ -44,7 +44,7 @@ function CardComponent({
                 </Typography>
             </CardContent>
             <CardActions>
-                <CustomButton
+                <CustomButtonLink
                     link={html_url}
                     size="small"
                     icon={<i style={{ marginRight: "5px" }} className={"fa fa-github"}></i>}

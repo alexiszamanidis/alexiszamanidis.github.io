@@ -1,12 +1,12 @@
 import { FC, useState } from "react";
 import GitHubService from "../../../services/GitHub/GitHub";
 import Alert from "@material-ui/lab/Alert";
-import CardComponent from "./CardComponent";
 import { useQuery } from "react-query";
-import { TextField, Grid, FormControl, InputLabel, Select, Tooltip } from "@material-ui/core";
+import { TextField, FormControl, InputLabel, Select, Tooltip } from "@material-ui/core";
 import useDebounce from "../../CustomHooks/useDebounce";
 import { useStyles } from "./styles";
 import { useFilteredData, useUniqueLanguages } from "./filterHooks";
+import Repositories from "./Repositories";
 
 const GitHub: FC = () => {
     const classes = useStyles();
@@ -68,22 +68,7 @@ const GitHub: FC = () => {
                             </Select>
                         </FormControl>
                     </div>
-                    <Grid container spacing={3} className={classes.grid}>
-                        {computedData.map((repo: any) => {
-                            return (
-                                <Grid item xs={12} sm={4} md={4} key={repo.id}>
-                                    <CardComponent
-                                        name={repo.name}
-                                        description={repo.description}
-                                        language={repo.language}
-                                        stargazers_count={repo.stargazers_count}
-                                        forks_count={repo.forks_count}
-                                        html_url={repo.html_url}
-                                    />
-                                </Grid>
-                            );
-                        })}
-                    </Grid>
+                    <Repositories repositories={computedData} />
                 </div>
             )}
         </div>

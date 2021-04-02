@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import { passionateAbout, hobbies, contacts, buttons } from "./config";
-import CustomButton from "../../Button";
+import CustomButtonLink from "../../CustomButtonLink";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -68,7 +68,7 @@ const RightPaper: FC = () => {
                 <div className={classes.item}>
                     {buttons.map((button, index) => {
                         return (
-                            <CustomButton
+                            <CustomButtonLink
                                 key={index}
                                 link={button.link}
                                 size="medium"

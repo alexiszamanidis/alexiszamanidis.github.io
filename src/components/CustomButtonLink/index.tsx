@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     },
 });
 
-function CustomButton({
+function CustomButtonLink({
     link,
     size,
     icon,
@@ -43,4 +43,4 @@ function CustomButton({
     );
 }
 
-export default CustomButton;
+export default CustomButtonLink;
