@@ -1,4 +1,4 @@
-import { FC, useMemo, useState } from "react";
+import { FC, useState } from "react";
 import GitHubService from "../../../services/GitHub/GitHub";
 import Alert from "@material-ui/lab/Alert";
 import CardComponent from "./CardComponent";
@@ -6,67 +6,30 @@ import { useQuery } from "react-query";
 import { TextField, Grid, FormControl, InputLabel, Select, Tooltip } from "@material-ui/core";
 import useDebounce from "../../CustomHooks/useDebounce";
 import { useStyles } from "./styles";
+import { useFilteredData, useUniqueLanguages } from "./filterHooks";
 
 const GitHub: FC = () => {
     const classes = useStyles();
-
     const { isLoading, isError, data } = useQuery("gitHubRepositories", () =>
         GitHubService.getUserRepositories("alexiszamanidis").then(({ data }) => data)
     );
+    const [search, setSearch] = useState("");
+    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearch(e.target.value);
+    };
+    const debouncedSearch = useDebounce(search, 500);
+    const [selectedLanguage, setSelectedLanguage] = useState("");
+    const handleLanguage = (e: React.ChangeEvent<{ value: unknown }>) => {
+        setSelectedLanguage(e.target.value as string);
+    };
+    const { languages } = useUniqueLanguages(data);
+    const { computedData } = useFilteredData(data, debouncedSearch, selectedLanguage);
 
     const gitHubFaIcon = (
         <div className={`${classes.icon} fa-3x`}>
             <i className={"fa fa-github" + (isLoading === true ? " fa-spin" : "")}></i>
         </div>
     );
-
-    const [search, setSearch] = useState("");
-    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSearch(e.target.value);
-    };
-    const debouncedSearch = useDebounce(search, 500);
-
-    const [selectedLanguage, setSelectedLanguage] = useState("");
-    const handleLanguage = (e: any) => {
-        setSelectedLanguage(e.target.value);
-    };
-    const languages = useMemo(() => {
-        if (data === undefined) return [];
-        let uniqueLanguages = new Set<string>(
-            data
-                .filter(
-                    ({ language }: { language: string | null }) =>
-                        language !== null && language !== ""
-                )
-                .map(({ language }: { language: string }) => language)
-        );
-        return Array.from(uniqueLanguages);
-    }, [data]);
-
-    const computedData = useMemo(() => {
-        if (data === undefined) return [];
-        let tempRepositories = data;
-        if (debouncedSearch.length > 0) {
-            tempRepositories = tempRepositories.filter(
-                ({ name, description }: { name: string; description: string }) => {
-                    return (
-                        name.toString().toLowerCase().includes(debouncedSearch.toLowerCase()) ||
-                        description.toString().toLowerCase().includes(debouncedSearch.toLowerCase())
-                    );
-                }
-            );
-        }
-
-        if (selectedLanguage.length > 0) {
-            tempRepositories = tempRepositories.filter(
-                ({ language }: { language: string | null }) => {
-                    return language === selectedLanguage;
-                }
-            );
-        }
-
-        return tempRepositories;
-    }, [data, debouncedSearch, selectedLanguage]);
 
     return (
         <div>

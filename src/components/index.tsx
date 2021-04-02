@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, useMemo } from "react";
 
 import { tabItems } from "./config";
 import AboutMe from "./AboutMe";
@@ -38,11 +38,11 @@ const App: FC = () => {
 
     const [value, setValue] = useState<number>(0);
 
-    const showTabContent = () => {
+    const showTabContent: JSX.Element | null = useMemo(() => {
         if (value === 0) return <AboutMe />;
         else if (value === 1) return <Portfolio />;
         else return null;
-    };
+    }, [value]);
 
     return (
         <QueryClientProvider client={queryClient}>
@@ -60,7 +60,7 @@ const App: FC = () => {
                                 return <Tab key={index} {...tabItem} />;
                             })}
                         </Tabs>
-                        {showTabContent()}
+                        {showTabContent}
                     </div>
                     <div className={classes.footer}>
                         <Footer />
