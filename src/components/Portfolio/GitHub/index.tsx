@@ -1,28 +1,23 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import GitHubService from "../../../services/GitHub/GitHub";
 import Alert from "@material-ui/lab/Alert";
 import { useQuery } from "react-query";
 import { TextField, FormControl, InputLabel, Select, Tooltip } from "@material-ui/core";
 import useDebounce from "../../CustomHooks/useDebounce";
 import { useStyles } from "./styles";
-import { useFilteredData, useUniqueLanguages } from "./filterHooks";
+import { useFilteredData, useSearch, useUniqueLanguages } from "./filterHooks";
 import Repositories from "./Repositories";
 
 const GitHub: FC = () => {
     const classes = useStyles();
+
     const { isLoading, isError, data } = useQuery("gitHubRepositories", () =>
         GitHubService.getUserRepositories("alexiszamanidis").then(({ data }) => data)
     );
-    const [search, setSearch] = useState("");
-    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSearch(e.target.value);
-    };
+
+    const { search, handleSearch } = useSearch();
     const debouncedSearch = useDebounce(search, 500);
-    const [selectedLanguage, setSelectedLanguage] = useState("");
-    const handleLanguage = (e: React.ChangeEvent<{ value: unknown }>) => {
-        setSelectedLanguage(e.target.value as string);
-    };
-    const { languages } = useUniqueLanguages(data);
+    const { selectedLanguage, handleLanguage, languages } = useUniqueLanguages(data);
     const { computedData } = useFilteredData(data, debouncedSearch, selectedLanguage);
 
     const gitHubFaIcon = (
@@ -47,6 +42,7 @@ const GitHub: FC = () => {
                                 variant="outlined"
                                 className={classes.search}
                                 onChange={handleSearch}
+                                value={search}
                             />
                         </Tooltip>
                         <FormControl variant="outlined" className={classes.select}>

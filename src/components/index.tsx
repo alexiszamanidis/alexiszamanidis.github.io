@@ -1,10 +1,6 @@
-import { FC, useState, useMemo } from "react";
-
+import { FC } from "react";
 import { tabItems } from "./config";
-import AboutMe from "./AboutMe";
-import Portfolio from "./Portfolio";
 import Footer from "./Footer";
-
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import { QueryClient, QueryClientProvider } from "react-query";
@@ -12,7 +8,8 @@ import { makeStyles } from "@material-ui/core";
 import GlobalStyles from "../globalStyles";
 import theme from "../theme";
 import { ThemeProvider } from "@material-ui/core";
-// create a client for react-query
+import useTabs from "./useTabs";
+
 const queryClient = new QueryClient();
 
 const useStyles = makeStyles((theme) => ({
@@ -36,13 +33,7 @@ const useStyles = makeStyles((theme) => ({
 const App: FC = () => {
     const classes = useStyles();
 
-    const [value, setValue] = useState<number>(0);
-
-    const showTabContent: JSX.Element | null = useMemo(() => {
-        if (value === 0) return <AboutMe />;
-        else if (value === 1) return <Portfolio />;
-        else return null;
-    }, [value]);
+    const { value, setValue, showTabContent } = useTabs();
 
     return (
         <QueryClientProvider client={queryClient}>

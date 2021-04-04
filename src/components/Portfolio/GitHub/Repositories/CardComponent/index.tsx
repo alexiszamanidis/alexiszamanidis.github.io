@@ -1,3 +1,4 @@
+import { FC } from "react";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -13,21 +14,23 @@ const useStyles = makeStyles({
     },
 });
 
-function CardComponent({
-    name,
-    description,
-    language,
-    stargazers_count,
-    forks_count,
-    html_url,
-}: {
+interface CardComponentProps {
     name: string;
     description: string;
     language: string;
     stargazers_count: number;
     forks_count: number;
     html_url: string;
-}) {
+}
+
+const CardComponent: FC<CardComponentProps> = ({
+    name,
+    description,
+    language,
+    stargazers_count,
+    forks_count,
+    html_url,
+}) => {
     const classes = useStyles();
     return (
         <Card className={classes.root} style={{ height: "100%" }}>
@@ -53,6 +56,6 @@ function CardComponent({
             </CardActions>
         </Card>
     );
-}
+};
 
 export default CardComponent;

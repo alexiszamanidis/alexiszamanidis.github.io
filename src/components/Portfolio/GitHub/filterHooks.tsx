@@ -1,4 +1,12 @@
-import { useMemo } from "react";
+import { useState, useMemo } from "react";
+
+export const useSearch = () => {
+    const [search, setSearch] = useState("");
+    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearch(e.target.value);
+    };
+    return { search, setSearch, handleSearch };
+};
 
 type Repo = {
     id: number;
@@ -11,6 +19,11 @@ type Repo = {
 };
 
 export const useUniqueLanguages = (data: Repo[]) => {
+    const [selectedLanguage, setSelectedLanguage] = useState("");
+    const handleLanguage = (e: React.ChangeEvent<{ value: unknown }>) => {
+        setSelectedLanguage(e.target.value as string);
+    };
+
     const languages = useMemo(() => {
         if (data === undefined) return [];
         let uniqueLanguages = new Set<string>(
@@ -24,7 +37,7 @@ export const useUniqueLanguages = (data: Repo[]) => {
         return Array.from(uniqueLanguages);
     }, [data]);
 
-    return { languages };
+    return { selectedLanguage, setSelectedLanguage, handleLanguage, languages };
 };
 
 export const useFilteredData = (
