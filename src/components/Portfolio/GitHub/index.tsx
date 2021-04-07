@@ -1,12 +1,45 @@
 import { FC } from "react";
-import GitHubService from "../../../services/GitHub/GitHub";
-import Alert from "@material-ui/lab/Alert";
 import { useQuery } from "react-query";
-import { TextField, FormControl, InputLabel, Select, Tooltip } from "@material-ui/core";
-import useDebounce from "../../CustomHooks/useDebounce";
-import { useStyles } from "./styles";
-import { useFilteredData, useSearch, useUniqueLanguages } from "./filterHooks";
 import Repositories from "./Repositories";
+import Alert from "@material-ui/lab/Alert";
+import { makeStyles } from "@material-ui/core";
+import useDebounce from "../../CustomHooks/useDebounce";
+import GitHubService from "../../../services/GitHub/GitHub";
+import { useGitHubFaIconSpinner } from "./useGitHubFaIconSpinner";
+import { useFilteredData, useSearch, useUniqueLanguages } from "./filterHooks";
+import { TextField, FormControl, InputLabel, Select, Tooltip } from "@material-ui/core";
+
+const useStyles = makeStyles({
+    root: {
+        width: "300px",
+        margin: "30px",
+    },
+    searchFields: {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        // eslint-disable-next-line
+        ["@media (min-width:600px)"]: {
+            flexDirection: "row",
+        },
+    },
+    search: {
+        width: "100%",
+        margin: "5px 5px 5px 0px",
+        // eslint-disable-next-line
+        ["@media (min-width:600px)"]: {
+            width: "30%",
+        },
+    },
+    select: {
+        width: "100%",
+        margin: "5px 5px 5px 0px",
+        // eslint-disable-next-line
+        ["@media (min-width:600px)"]: {
+            width: "30%",
+        },
+    },
+});
 
 const GitHub: FC = () => {
     const classes = useStyles();
@@ -20,11 +53,7 @@ const GitHub: FC = () => {
     const { selectedLanguage, handleLanguage, languages } = useUniqueLanguages(data);
     const { computedData } = useFilteredData(data, debouncedSearch, selectedLanguage);
 
-    const gitHubFaIcon = (
-        <div className={`${classes.icon} fa-3x`}>
-            <i className={"fa fa-github" + (isLoading === true ? " fa-spin" : "")}></i>
-        </div>
-    );
+    const gitHubFaIcon = useGitHubFaIconSpinner(isLoading);
 
     return (
         <div>
