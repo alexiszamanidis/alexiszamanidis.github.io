@@ -2,35 +2,6 @@ import ReceiptIcon from "@material-ui/icons/Receipt";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import GitHubIcon from "@material-ui/icons/GitHub";
 
-interface PassionateAboutItem {
-    name: string;
-}
-
-const passionateAbout: PassionateAboutItem[] = [
-    {
-        name: "Full Stack Development mainly with React.js, Spring Boot and MySQL",
-    },
-    {
-        name: "Machine Learning - Data Mining",
-    },
-    {
-        name: "Parallel Programming",
-    },
-];
-
-interface HobbyItem {
-    name: string;
-}
-
-const hobbies: HobbyItem[] = [
-    {
-        name: "Playing Football and Basketball",
-    },
-    {
-        name: "Calisthenics Workout",
-    },
-];
-
 interface ContactItem {
     icon: string;
     name: string;
@@ -74,4 +45,4 @@ const buttons: ButtonItem[] = [
     },
 ];
 
-export { passionateAbout, hobbies, contacts, buttons };
+export { contacts, buttons };

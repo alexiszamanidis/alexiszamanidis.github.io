@@ -1,6 +1,7 @@
 import { FC } from "react";
-import { experience } from "./config";
-import { Box, makeStyles, Typography } from "@material-ui/core";
+import { education } from "./config";
+import LinkIcon from "@material-ui/icons/Link";
+import { Box, Link, makeStyles, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -9,33 +10,35 @@ const useStyles = makeStyles((theme) => ({
     item: {
         marginRight: "5px",
     },
+    itemName: {
+        marginRight: "5px",
+    },
     itemDescription: {
         color: theme.palette.text.primary,
     },
 }));
 
-const Experience: FC = () => {
+const Education: FC = () => {
     const classes = useStyles();
 
     return (
         <Box mb={3}>
             <Box fontWeight="fontWeightBold" className={classes.title}>
-                <Typography variant="h6">Experience</Typography>
+                <Typography variant="h6">Education</Typography>
             </Box>
-            {experience.map((item, index) => {
+            {education.map((item, index) => {
                 return (
                     <Box key={index} display="flex" flexDirection="column">
                         <Box display="flex" flexDirection="row" justifyContent="space-between">
                             <Box display="flex" flexDirection="row">
-                                <Typography
-                                    color="primary"
-                                    className={classes.item}
-                                >{`${item.jobTitle} `}</Typography>
-                                <Typography>{` | ${item.company} - ${item.location}`}</Typography>
+                                <Typography color="primary" className={classes.itemName}>
+                                    {item.university}
+                                </Typography>
+                                <Link href={item.link} target="_blank" rel="noreferrer">
+                                    <LinkIcon />
+                                </Link>
                             </Box>
-                            <Typography>
-                                {item.from} - {item.to}
-                            </Typography>
+                            <Typography>{item.duration}</Typography>
                         </Box>
                         <Typography className={classes.itemDescription}>
                             {item.description}
@@ -47,4 +50,4 @@ const Experience: FC = () => {
     );
 };
 
-export default Experience;
+export default Education;
