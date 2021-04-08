@@ -8,7 +8,7 @@ import { makeStyles } from "@material-ui/core";
 import GlobalStyles from "../globalStyles";
 import theme from "../theme";
 import { ThemeProvider } from "@material-ui/core";
-import useTabs from "./useTabs";
+import { useTabs } from "./useTabs";
 
 const queryClient = new QueryClient();
 

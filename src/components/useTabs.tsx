@@ -2,7 +2,7 @@ import { useState, useMemo } from "react";
 import AboutMe from "./AboutMe";
 import Portfolio from "./Portfolio";
 
-const useTabs = () => {
+export const useTabs = () => {
     const [value, setValue] = useState<number>(0);
 
     const showTabContent: JSX.Element | null = useMemo(() => {
@@ -13,5 +13,3 @@ const useTabs = () => {
 
     return { value, setValue, showTabContent };
 };
-
-export default useTabs;
