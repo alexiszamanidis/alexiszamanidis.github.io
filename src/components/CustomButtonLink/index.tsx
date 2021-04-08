@@ -11,6 +11,7 @@ const useStyles = makeStyles({
         "&:hover, &:focus": {
             outline: "2px solid white",
             outlineOffset: "-5px",
+            boxShadow: "2px 2px gray",
         },
     },
 });

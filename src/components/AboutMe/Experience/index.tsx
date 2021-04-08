@@ -12,6 +12,9 @@ const useStyles = makeStyles((theme) => ({
     itemDescription: {
         color: theme.palette.text.primary,
     },
+    itemDuration: {
+        color: theme.palette.text.primary,
+    },
 }));
 
 const Experience: FC = () => {
@@ -33,7 +36,7 @@ const Experience: FC = () => {
                                 >{`${item.jobTitle} `}</Typography>
                                 <Typography>{` | ${item.company} - ${item.location}`}</Typography>
                             </Box>
-                            <Typography>
+                            <Typography className={classes.itemDuration}>
                                 {item.from} - {item.to}
                             </Typography>
                         </Box>

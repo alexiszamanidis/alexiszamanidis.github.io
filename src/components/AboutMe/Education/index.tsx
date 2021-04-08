@@ -16,6 +16,12 @@ const useStyles = makeStyles((theme) => ({
     itemDescription: {
         color: theme.palette.text.primary,
     },
+    itemLocation: {
+        marginRight: "5px",
+    },
+    itemDuration: {
+        color: theme.palette.text.primary,
+    },
 }));
 
 const Education: FC = () => {
@@ -34,11 +40,16 @@ const Education: FC = () => {
                                 <Typography color="primary" className={classes.itemName}>
                                     {item.university}
                                 </Typography>
+                                <Typography
+                                    className={classes.itemLocation}
+                                >{` | ${item.location}`}</Typography>
                                 <Link href={item.link} target="_blank" rel="noreferrer">
                                     <LinkIcon />
                                 </Link>
                             </Box>
-                            <Typography>{item.duration}</Typography>
+                            <Typography className={classes.itemDuration}>
+                                {item.duration}
+                            </Typography>
                         </Box>
                         <Typography className={classes.itemDescription}>
                             {item.description}
