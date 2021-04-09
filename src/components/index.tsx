@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { makeStyles } from "@material-ui/core";
+import { Box, makeStyles } from "@material-ui/core";
 import GlobalStyles from "../globalStyles";
 import theme from "../theme";
 import { ThemeProvider } from "@material-ui/core";
@@ -19,13 +19,12 @@ const useStyles = makeStyles((theme) => ({
         minHeight: "100vh",
     },
     main: {
-        marginBottom: theme.spacing(3),
+        paddingBottom: theme.spacing(3),
     },
     footer: {
         marginTop: "auto",
     },
     tabs: {
-        backgroundColor: "#3F51B5",
         color: "white",
     },
 }));
@@ -41,16 +40,23 @@ const App: FC = () => {
                 <GlobalStyles />
                 <div className={classes.root}>
                     <div className={classes.main}>
-                        <Tabs
-                            value={value}
-                            onChange={(event, newValue) => setValue(newValue)}
-                            variant="fullWidth"
-                            className={classes.tabs}
-                        >
-                            {tabItems.map((tabItem, index) => {
-                                return <Tab key={index} {...tabItem} />;
-                            })}
-                        </Tabs>
+                        <Box bgcolor="primary.main">
+                            <Tabs
+                                value={value}
+                                onChange={(event, newValue) => setValue(newValue)}
+                                variant="fullWidth"
+                                className={classes.tabs}
+                                TabIndicatorProps={{
+                                    style: {
+                                        height: "5px",
+                                    },
+                                }}
+                            >
+                                {tabItems.map((tabItem, index) => {
+                                    return <Tab key={index} {...tabItem} />;
+                                })}
+                            </Tabs>
+                        </Box>
                         {showTabContent}
                     </div>
                     <div className={classes.footer}>

@@ -1,10 +1,9 @@
-import { makeStyles } from "@material-ui/core";
 import { FC } from "react";
+import { Box, makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
     root: {
         padding: theme.spacing(1, 1),
-        backgroundColor: "#3F51B5",
         color: "white",
         display: "flex",
         alignItems: "center",
@@ -36,9 +35,9 @@ const Copyright: FC = () => {
 const Footer: FC = () => {
     const classes = useStyles();
     return (
-        <div className={classes.root}>
+        <Box className={classes.root} bgcolor="primary.main">
             <Copyright />
-        </div>
+        </Box>
     );
 };
 

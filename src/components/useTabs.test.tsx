@@ -22,7 +22,7 @@ describe("useTabs", () => {
         expect(result.current.value).toBe(1);
     });
 
-    it("should update value with setValue to 2 and showTabContent value to Portfolio component", () => {
+    it("should update value with setValue to 1 and showTabContent value to Portfolio component", () => {
         const { result } = renderHook(() => useTabs());
         act(() => {
             result.current.setValue(1);
