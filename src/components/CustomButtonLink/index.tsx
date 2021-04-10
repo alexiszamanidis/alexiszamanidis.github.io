@@ -1,3 +1,4 @@
+import { FC } from "react";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core";
 
@@ -16,32 +17,30 @@ const useStyles = makeStyles({
     },
 });
 
-function CustomButtonLink({
-    link,
-    size,
-    icon,
-    text,
-}: {
+interface CustomButtonLinkProps {
     link: string;
     size: "small" | "medium" | undefined;
-    icon: any;
+    icon: JSX.Element;
     text: string;
-}) {
+}
+
+const CustomButtonLink: FC<CustomButtonLinkProps> = ({ link, size, icon, text }) => {
     const classes = useStyles();
 
     return (
-        <a href={link} target="_blank" rel="noreferrer">
+        <a data-test-id="custom-button-link-a" href={link} target="_blank" rel="noreferrer">
             <Button
-                size={size}
-                variant="contained"
+                data-test-id="custom-button-link-button"
                 color="primary"
-                className={classes.button}
+                variant="contained"
+                size={size}
                 startIcon={icon}
+                className={classes.button}
             >
                 {text}
             </Button>
         </a>
     );
-}
+};
 
 export default CustomButtonLink;

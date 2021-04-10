@@ -22,3 +22,8 @@ export const calculateAge = (dateOfBirth: string): number => {
     if (todayMonth > birthMonth || (todayMonth === birthMonth && todayDay >= birthDay)) return age;
     else return age - 1;
 };
+
+export const findByDataTestIdAttribute = (component: any, attribute: string) => {
+    const wrapper = component.find(`[data-test-id="${attribute}"]`);
+    return wrapper;
+};

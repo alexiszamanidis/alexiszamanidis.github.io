@@ -1,8 +1,7 @@
-import { useTabs } from "./useTabs";
-import { act } from "react-dom/test-utils";
-import { renderHook } from "@testing-library/react-hooks";
 import AboutMe from "./AboutMe";
+import { useTabs } from "./useTabs";
 import Portfolio from "./Portfolio";
+import { renderHook, act } from "@testing-library/react-hooks";
 
 describe("useTabs", () => {
     it("should return content", () => {
