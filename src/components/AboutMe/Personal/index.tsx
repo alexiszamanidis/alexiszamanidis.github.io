@@ -38,7 +38,7 @@ const Personal: FC = () => {
     );
 
     return (
-        <Box mb={3}>
+        <Box mb={5}>
             {isLoading ? (
                 <Box display="flex" justifyContent="center">
                     <CircularProgress />
@@ -54,14 +54,16 @@ const Personal: FC = () => {
                     />
                     <div className={classes.personal}>
                         <div className={classes.item + " personal"}>
-                            <i className={classes.title + " fa fa-user"}></i>
-                            {data.name} <i className={classes.title + " fa fa-map-marker"}></i>
-                            {data.location}{" "}
-                            <i className={classes.title + " fa fa-birthday-cake"}></i>
-                            {calculateAge("1998-01-20")}
+                            <Typography>
+                                <i className={classes.title + " fa fa-user"}></i>
+                                {data.name} <i className={classes.title + " fa fa-map-marker"}></i>
+                                {data.location}{" "}
+                                <i className={classes.title + " fa fa-birthday-cake"}></i>
+                                {calculateAge("1998-01-20")}
+                            </Typography>
                         </div>
                     </div>
-                    <Box fontWeight="fontWeightBold" className={classes.title}>
+                    <Box mb={1} fontWeight="fontWeightBold" className={classes.title}>
                         <Typography variant="h6">Summary</Typography>
                     </Box>
                     <Typography className={classes.bio}>{data.bio}</Typography>

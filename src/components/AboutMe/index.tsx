@@ -1,9 +1,10 @@
 import { FC } from "react";
 import Contact from "./Contact";
+import Hobbies from "./Hobbies";
 import Personal from "./Personal";
 import Education from "./Education";
 import Experience from "./Experience";
-import Hobbies from "./Hobbies/Hobbies";
+import ButtonLinks from "./ButtonLinks";
 import PassionateAbout from "./PassionAbout";
 import Container from "@material-ui/core/Container";
 import { makeStyles, Paper } from "@material-ui/core";
@@ -31,6 +32,7 @@ const AboutMe: FC = () => {
                 <PassionateAbout />
                 <Hobbies />
                 <Contact />
+                <ButtonLinks />
             </Paper>
         </Container>
     );

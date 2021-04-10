@@ -19,8 +19,8 @@ const PassionateAbout: FC = () => {
     const classes = useStyles();
 
     return (
-        <Box mb={3}>
-            <Box fontWeight="fontWeightBold" className={classes.title}>
+        <Box mb={5}>
+            <Box mb={1} fontWeight="fontWeightBold" className={classes.title}>
                 <Typography variant="h6">Passionate About</Typography>
             </Box>
             <List className={classes.list}>
