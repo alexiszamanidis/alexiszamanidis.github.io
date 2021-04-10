@@ -15,10 +15,10 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Copyright: FC = () => {
+export const Copyright: FC = () => {
     const classes = useStyles();
     return (
-        <h5 className="copyright">
+        <h5 data-test-id="copyright" className="copyright">
             © {new Date().getFullYear()} Copyright:
             <a
                 className="underline"
@@ -26,7 +26,9 @@ const Copyright: FC = () => {
                 href="https://github.com/alexiszamanidis"
                 target="_blank"
             >
-                <b className={classes.a}>{" Alexis Zamanidis"}</b>
+                <b className={classes.a} data-test-id="copyright-name">
+                    {" Alexis Zamanidis"}
+                </b>
             </a>
         </h5>
     );
@@ -35,8 +37,8 @@ const Copyright: FC = () => {
 const Footer: FC = () => {
     const classes = useStyles();
     return (
-        <Box className={classes.root} bgcolor="primary.main">
-            <Copyright />
+        <Box data-test-id="footer" className={classes.root} bgcolor="primary.main">
+            <Copyright data-test-id="copyright-inside-footer" />
         </Box>
     );
 };
