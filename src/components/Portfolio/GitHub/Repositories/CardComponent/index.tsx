@@ -11,6 +11,7 @@ const useStyles = makeStyles({
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
+        height: "100%",
     },
 });
 
@@ -33,13 +34,13 @@ const CardComponent: FC<CardComponentProps> = ({
 }) => {
     const classes = useStyles();
     return (
-        <Card className={classes.root} style={{ height: "100%" }}>
+        <Card data-test-id="card-component" className={classes.root}>
             <CardContent>
-                <Typography color="textSecondary" gutterBottom>
+                <Typography data-test-id="card-component-name" color="textSecondary" gutterBottom>
                     {name}
                 </Typography>
-                <Typography>{description}</Typography>
-                <Typography>
+                <Typography data-test-id="card-component-description">{description}</Typography>
+                <Typography data-test-id="card-component-language-star-fork">
                     <b>language</b>: {language} <i className={"fa fa-star"}></i>
                     {` ${stargazers_count} `}
                     <i className="fa fa-code-fork"></i>
@@ -48,6 +49,7 @@ const CardComponent: FC<CardComponentProps> = ({
             </CardContent>
             <CardActions>
                 <CustomButtonLink
+                    data-test-id="card-component-custom-button-link"
                     link={html_url}
                     size="small"
                     icon={<i style={{ marginRight: "5px" }} className={"fa fa-github"}></i>}
