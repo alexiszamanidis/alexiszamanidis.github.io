@@ -33,8 +33,10 @@ const useStyles = makeStyles((theme) => ({
 const Personal: FC = () => {
     const classes = useStyles();
 
-    const { isLoading, isError, data } = useQuery("userData", () =>
-        GitHub.getUserData("alexiszamanidis").then(({ data }) => data)
+    const { isLoading, isError, data } = useQuery(
+        "gitHubUserData",
+        () => GitHub.getUserData("alexiszamanidis").then(({ data }) => data),
+        { refetchOnMount: false, cacheTime: Infinity }
     );
 
     return (

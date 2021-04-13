@@ -44,8 +44,10 @@ const useStyles = makeStyles({
 const GitHub: FC = () => {
     const classes = useStyles();
 
-    const { isLoading, isError, data } = useQuery("gitHubRepositories", () =>
-        GitHubService.getUserRepositories("alexiszamanidis").then(({ data }) => data)
+    const { isLoading, isError, data } = useQuery(
+        "gitHubRepositories",
+        () => GitHubService.getUserRepositories("alexiszamanidis").then(({ data }) => data),
+        { refetchOnMount: false, cacheTime: Infinity }
     );
 
     const { search, handleSearch } = useSearch();
