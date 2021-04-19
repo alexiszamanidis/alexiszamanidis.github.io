@@ -28,11 +28,12 @@ const Repositories: FC<RepoProps> = ({ repositories }) => {
     const classes = useStyles();
 
     return (
-        <Grid container spacing={3} className={classes.grid}>
+        <Grid data-test-id="repositories" container spacing={3} className={classes.grid}>
             {repositories.map((repo: Repo) => {
                 return (
-                    <Grid item xs={12} sm={4} md={4} key={repo.id}>
+                    <Grid data-test-id="repository" item xs={12} sm={4} md={4} key={repo.id}>
                         <CardComponent
+                            data-test-id="repository-card-component"
                             name={repo.name}
                             description={repo.description}
                             language={repo.language}

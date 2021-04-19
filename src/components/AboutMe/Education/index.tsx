@@ -22,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
     itemDuration: {
         color: theme.palette.text.primary,
     },
+    itemLinkIcon: {
+        color: "black",
+    },
 }));
 
 const Education: FC = () => {
@@ -44,7 +47,7 @@ const Education: FC = () => {
                                     className={classes.itemLocation}
                                 >{` | ${item.location}`}</Typography>
                                 <Link href={item.link} target="_blank" rel="noreferrer">
-                                    <LinkIcon />
+                                    <LinkIcon className={classes.itemLinkIcon} />
                                 </Link>
                             </Box>
                             <Typography className={classes.itemDuration}>

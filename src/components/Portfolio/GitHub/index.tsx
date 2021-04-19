@@ -67,8 +67,13 @@ const GitHub: FC = () => {
                 <div>
                     {gitHubFaIcon}
                     <div className={classes.searchFields}>
-                        <Tooltip title="Filter by Repository Name, Description" placement="top">
+                        <Tooltip
+                            data-test-id="tooltip-search-text-field"
+                            title="filter by repository name and description"
+                            placement="top"
+                        >
                             <TextField
+                                data-test-id="search-text-field"
                                 label="Search"
                                 variant="outlined"
                                 className={classes.search}
@@ -76,9 +81,14 @@ const GitHub: FC = () => {
                                 value={search}
                             />
                         </Tooltip>
-                        <FormControl variant="outlined" className={classes.select}>
-                            <InputLabel>Language</InputLabel>
+                        <FormControl
+                            data-test-id="select-form-control"
+                            variant="outlined"
+                            className={classes.select}
+                        >
+                            <InputLabel data-test-id="select-input-label">Language</InputLabel>
                             <Select
+                                data-test-id="select"
                                 native
                                 label="Language"
                                 value={selectedLanguage}
@@ -95,7 +105,7 @@ const GitHub: FC = () => {
                             </Select>
                         </FormControl>
                     </div>
-                    <Repositories repositories={computedData} />
+                    <Repositories data-test-id="repositories" repositories={computedData} />
                 </div>
             )}
         </div>
