@@ -24,15 +24,15 @@ const AboutMe: FC = () => {
     const classes = useStyles();
 
     return (
-        <Container maxWidth="md" className={classes.root}>
+        <Container data-test-id="about-me" maxWidth="md" className={classes.root}>
             <Paper className={classes.paper}>
-                <Personal />
-                <Education />
-                <Experience />
-                <PassionateAbout />
-                <Hobbies />
-                <Contact />
-                <ButtonLinks />
+                <Personal data-test-id="personal" />
+                <Education data-test-id="education" />
+                <Experience data-test-id="experience" />
+                <PassionateAbout data-test-id="passionate-about" />
+                <Hobbies data-test-id="hobbies" />
+                <Contact data-test-id="contact" />
+                <ButtonLinks data-test-id="button-links" />
             </Paper>
         </Container>
     );

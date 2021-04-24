@@ -3,11 +3,11 @@ import { buttons } from "./config";
 import { Box, makeStyles } from "@material-ui/core";
 import CustomButtonLink from "../../CustomButtonLink";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
     root: {
         textAlign: "center",
     },
-}));
+});
 
 const ButtonLinks: FC = () => {
     const classes = useStyles();

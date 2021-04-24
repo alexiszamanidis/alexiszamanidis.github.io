@@ -38,8 +38,8 @@ const App: FC = () => {
         <QueryClientProvider client={queryClient}>
             <ThemeProvider theme={theme}>
                 <GlobalStyles />
-                <div className={classes.root}>
-                    <div className={classes.main}>
+                <div data-test-id="app" className={classes.root}>
+                    <div data-test-id="tabs" className={classes.main}>
                         <Box bgcolor="primary.main">
                             <Tabs
                                 value={value}
@@ -59,7 +59,7 @@ const App: FC = () => {
                         </Box>
                         {showTabContent}
                     </div>
-                    <div className={classes.footer}>
+                    <div data-test-id="footer" className={classes.footer}>
                         <Footer />
                     </div>
                 </div>
