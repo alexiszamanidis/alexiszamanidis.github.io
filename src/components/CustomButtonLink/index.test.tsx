@@ -1,13 +1,7 @@
 import CustomButtonLink from "./";
 import { shallow, mount } from "enzyme";
+import { CustomButtonLinkProps } from "./types";
 import { findByDataTestIdAttribute } from "../../utilities";
-
-interface CustomButtonLinkProps {
-    link: string;
-    size: "small" | "medium";
-    icon: JSX.Element;
-    text: string;
-}
 
 describe("CustomButtonLink", () => {
     let customButtonLinkProps: CustomButtonLinkProps;

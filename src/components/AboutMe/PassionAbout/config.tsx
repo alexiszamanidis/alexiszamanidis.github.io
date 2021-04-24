@@ -1,6 +1,4 @@
-interface PassionateAboutItem {
-    name: string;
-}
+import { PassionateAboutItem } from "./types";
 
 const passionateAbout: PassionateAboutItem[] = [
     {

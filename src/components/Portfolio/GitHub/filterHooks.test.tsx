@@ -1,3 +1,4 @@
+import { Repo } from "./types";
 import { act } from "react-dom/test-utils";
 import { renderHook } from "@testing-library/react-hooks";
 import { useFilteredData, useSearch, useUniqueLanguages } from "./filterHooks";
@@ -29,16 +30,6 @@ describe("useSearch", () => {
         expect(result.current.search).toBe("test");
     });
 });
-
-type Repo = {
-    id: number;
-    name: string;
-    description: string;
-    language: string;
-    stargazers_count: number;
-    forks_count: number;
-    html_url: string;
-};
 
 let data: Repo[] = [
     {

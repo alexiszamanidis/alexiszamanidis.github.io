@@ -1,16 +1,7 @@
 import Repositories from "./";
+import { Repo } from "./types";
 import { shallow } from "enzyme";
 import { findByDataTestIdAttribute } from "../../../../utilities";
-
-type Repo = {
-    id: number;
-    name: string;
-    description: string;
-    language: string;
-    stargazers_count: number;
-    forks_count: number;
-    html_url: string;
-};
 
 let data: Repo[] = [
     {

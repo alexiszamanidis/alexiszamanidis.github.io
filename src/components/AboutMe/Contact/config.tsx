@@ -1,8 +1,4 @@
-interface ContactItem {
-    icon: string;
-    name: string;
-    link: string;
-}
+import { ContactItem } from "./types";
 
 const contacts: ContactItem[] = [
     {

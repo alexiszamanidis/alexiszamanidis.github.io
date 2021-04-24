@@ -1,3 +1,4 @@
+import { Repo } from "./types";
 import { useState, useMemo } from "react";
 
 export const useSearch = () => {
@@ -6,16 +7,6 @@ export const useSearch = () => {
         setSearch(e.target.value);
     };
     return { search, setSearch, handleSearch };
-};
-
-type Repo = {
-    id: number;
-    name: string;
-    description: string;
-    language: string;
-    stargazers_count: number;
-    forks_count: number;
-    html_url: string;
 };
 
 export const useUniqueLanguages = (data: Repo[]) => {

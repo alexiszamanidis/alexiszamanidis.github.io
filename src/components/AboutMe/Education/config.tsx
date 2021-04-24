@@ -1,10 +1,4 @@
-interface EducationItem {
-    university: string;
-    duration: string;
-    description: string;
-    location: string;
-    link: string;
-}
+import { EducationItem } from "./types";
 
 const education: EducationItem[] = [
     {

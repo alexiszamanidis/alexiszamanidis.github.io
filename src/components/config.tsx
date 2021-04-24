@@ -1,9 +1,5 @@
+import { TabItem } from "./types";
 import { AccountBox, Work } from "@material-ui/icons";
-
-interface TabItem {
-    label: string;
-    icon: JSX.Element;
-}
 
 const tabItems: TabItem[] = [
     { label: "ABOUT ME", icon: <AccountBox /> },

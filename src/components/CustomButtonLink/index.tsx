@@ -1,6 +1,7 @@
 import { FC } from "react";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core";
+import { CustomButtonLinkProps } from "./types";
 
 const useStyles = makeStyles({
     button: {
@@ -16,13 +17,6 @@ const useStyles = makeStyles({
         },
     },
 });
-
-interface CustomButtonLinkProps {
-    link: string;
-    size: "small" | "medium" | undefined;
-    icon: JSX.Element;
-    text: string;
-}
 
 const CustomButtonLink: FC<CustomButtonLinkProps> = ({ link, size, icon, text }) => {
     const classes = useStyles();

@@ -1,5 +1,6 @@
-import { Grid } from "@material-ui/core";
 import { FC } from "react";
+import { Grid } from "@material-ui/core";
+import { Repo, RepoProps } from "./types";
 import CardComponent from "./CardComponent";
 import { makeStyles } from "@material-ui/core";
 
@@ -9,20 +10,6 @@ const useStyles = makeStyles({
         marginBottom: "10px",
     },
 });
-
-type Repo = {
-    id: number;
-    name: string;
-    description: string;
-    language: string;
-    stargazers_count: number;
-    forks_count: number;
-    html_url: string;
-};
-
-type RepoProps = {
-    repositories: Repo[];
-};
 
 const Repositories: FC<RepoProps> = ({ repositories }) => {
     const classes = useStyles();

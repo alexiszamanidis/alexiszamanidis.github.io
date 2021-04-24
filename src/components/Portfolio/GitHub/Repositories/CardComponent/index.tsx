@@ -1,9 +1,10 @@
 import { FC } from "react";
 import Card from "@material-ui/core/Card";
+import { CardComponentProps } from "./types";
+import { makeStyles } from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core";
 import CustomButtonLink from "../../../../CustomButtonLink";
 
 const useStyles = makeStyles({
@@ -14,15 +15,6 @@ const useStyles = makeStyles({
         height: "100%",
     },
 });
-
-interface CardComponentProps {
-    name: string;
-    description: string;
-    language: string;
-    stargazers_count: number;
-    forks_count: number;
-    html_url: string;
-}
 
 const CardComponent: FC<CardComponentProps> = ({
     name,

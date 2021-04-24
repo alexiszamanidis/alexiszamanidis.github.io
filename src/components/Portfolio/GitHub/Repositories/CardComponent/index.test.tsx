@@ -1,15 +1,7 @@
 import CardComponent from "./";
 import { shallow, mount } from "enzyme";
+import { CardComponentProps } from "./types";
 import { findByDataTestIdAttribute } from "../../../../../utilities";
-
-interface CardComponentProps {
-    name: string;
-    description: string;
-    language: string;
-    stargazers_count: number;
-    forks_count: number;
-    html_url: string;
-}
 
 describe("CardComponent", () => {
     let cardComponentProps: CardComponentProps;

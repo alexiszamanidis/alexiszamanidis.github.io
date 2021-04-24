@@ -1,12 +1,7 @@
+import { ButtonItem } from "./types";
+import GitHubIcon from "@material-ui/icons/GitHub";
 import ReceiptIcon from "@material-ui/icons/Receipt";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import GitHubIcon from "@material-ui/icons/GitHub";
-
-interface ButtonItem {
-    text: string;
-    icon: any;
-    link: string;
-}
 
 const buttons: ButtonItem[] = [
     {

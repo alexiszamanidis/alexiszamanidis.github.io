@@ -1,6 +1,4 @@
-interface HobbyItem {
-    name: string;
-}
+import { HobbyItem } from "./types";
 
 const hobbies: HobbyItem[] = [
     {
