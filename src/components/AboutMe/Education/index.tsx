@@ -1,6 +1,8 @@
 import { FC } from "react";
 import { education } from "./config";
 import LinkIcon from "@material-ui/icons/Link";
+import { useTheme } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { Box, Link, makeStyles, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
@@ -25,10 +27,20 @@ const useStyles = makeStyles((theme) => ({
     itemLinkIcon: {
         color: "black",
     },
+    itemSlash: {
+        display: "none",
+        // eslint-disable-next-line
+        ["@media (min-width:960px)"]: {
+            display: "block",
+            marginRight: "5px",
+        },
+    },
 }));
 
 const Education: FC = () => {
     const classes = useStyles();
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up("md"));
 
     return (
         <Box mb={5}>
@@ -38,17 +50,24 @@ const Education: FC = () => {
             {education.map((item, index) => {
                 return (
                     <Box key={index} display="flex" flexDirection="column">
-                        <Box display="flex" flexDirection="row" justifyContent="space-between">
-                            <Box display="flex" flexDirection="row">
+                        <Box
+                            display="flex"
+                            flexDirection={matches ? "row" : "column"}
+                            justifyContent="space-between"
+                        >
+                            <Box display="flex" flexDirection={matches ? "row" : "column"}>
                                 <Typography color="primary" className={classes.itemName}>
                                     {item.university}
                                 </Typography>
-                                <Typography
-                                    className={classes.itemLocation}
-                                >{` | ${item.location}`}</Typography>
-                                <Link href={item.link} target="_blank" rel="noreferrer">
-                                    <LinkIcon className={classes.itemLinkIcon} />
-                                </Link>
+                                <Box display="flex" flexDirection="row">
+                                    <Typography className={classes.itemSlash}>{" | "}</Typography>
+                                    <Typography className={classes.itemLocation}>
+                                        {item.location}
+                                    </Typography>
+                                    <Link href={item.link} target="_blank" rel="noreferrer">
+                                        <LinkIcon className={classes.itemLinkIcon} />
+                                    </Link>
+                                </Box>
                             </Box>
                             <Typography className={classes.itemDuration}>
                                 {item.duration}
