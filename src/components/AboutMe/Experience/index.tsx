@@ -34,7 +34,7 @@ const Experience: FC = () => {
                                     color="primary"
                                     className={classes.item}
                                 >{`${item.jobTitle} `}</Typography>
-                                <Typography>{` | ${item.company} - ${item.location}`}</Typography>
+                                <Typography>{` | ${item.company} - ${item.location} (${item.typeOfEmployee})`}</Typography>
                             </Box>
                             <Typography className={classes.itemDuration}>
                                 {item.from} - {item.to}

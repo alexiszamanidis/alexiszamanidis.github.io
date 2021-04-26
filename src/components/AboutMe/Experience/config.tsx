@@ -3,13 +3,15 @@ import { ExperienceItem } from "./types";
 const experience: ExperienceItem[] = [
     {
         from: "Oct 2020",
-        to: "Present (Ends in April 2021)",
-        jobTitle: "Full Stack Developer",
+        to: "April 2021",
+        jobTitle: "Full Stack Developer, Intern",
         company: "ITML",
         location: "Athens, Greece",
+        typeOfEmployee: "Remote Full-Time",
         description:
-            "I am building a subscription Web App for Doctors that will help them to automate their Visits, Referrals and Prescriptions for their Patients.",
-        details: ["Stack: React.js, Spring Boot, MySQL", "Security: JSON Web Tokens"],
+            "I built a Web Application which will be used by Doctors in their daily life  with main functionalities of automating Visits, Prescriptions and Referrals. " +
+            "But also it has other very useful functionalities such as Calendar, Pdf Generator for handwritten Prescriptions, Medicines Statistics. " +
+            "Its basic functionality is based on the API provided by IDIKA which is the official provider of e-Prescription in Greece.",
         link: null,
     },
 ];

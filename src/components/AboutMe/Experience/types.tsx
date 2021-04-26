@@ -4,7 +4,7 @@ export interface ExperienceItem {
     jobTitle: string;
     company: string;
     location: string;
+    typeOfEmployee: string;
     description: string;
-    details: Array<string>;
     link: string | null;
 }
