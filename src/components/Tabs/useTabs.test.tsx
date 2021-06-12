@@ -1,6 +1,6 @@
-import AboutMe from "./AboutMe";
+import AboutMe from "../AboutMe";
 import { useTabs } from "./useTabs";
-import Portfolio from "./Portfolio";
+import Portfolio from "../Portfolio";
 import { renderHook, act } from "@testing-library/react-hooks";
 
 describe("useTabs", () => {

@@ -1,6 +1,6 @@
+import AboutMe from "../AboutMe";
+import Portfolio from "../Portfolio";
 import { useState, useMemo } from "react";
-import AboutMe from "./AboutMe";
-import Portfolio from "./Portfolio";
 
 export const useTabs = () => {
     const [value, setValue] = useState<number>(0);
@@ -11,5 +11,9 @@ export const useTabs = () => {
         else return null;
     }, [value]);
 
-    return { value, setValue, showTabContent };
+    const handleTabs = (event: any, newValue: number) => {
+        setValue(newValue);
+    };
+
+    return { value, setValue, handleTabs, showTabContent };
 };
