@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import { useQuery } from "react-query";
 import Repositories from "./Repositories";
 import Alert from "@material-ui/lab/Alert";
@@ -39,6 +39,9 @@ const useStyles = makeStyles({
             width: "30%",
         },
     },
+    error: {
+        marginTop: "10px",
+    },
 });
 
 const GitHub: FC = () => {
@@ -58,57 +61,59 @@ const GitHub: FC = () => {
     const gitHubFaIcon = useGitHubFaIconSpinner(isLoading);
 
     return (
-        <div>
-            {isLoading ? (
-                gitHubFaIcon
-            ) : isError ? (
-                <Alert severity="error">Something happened</Alert>
+        <React.Fragment>
+            {gitHubFaIcon}
+            <div className={classes.searchFields}>
+                <Tooltip
+                    data-test-id="tooltip-search-text-field"
+                    title="filter by repository name and description"
+                    placement="top"
+                >
+                    <TextField
+                        data-test-id="search-text-field"
+                        label="Search"
+                        variant="outlined"
+                        className={classes.search}
+                        onChange={handleSearch}
+                        value={search}
+                    />
+                </Tooltip>
+                <FormControl
+                    data-test-id="select-form-control"
+                    variant="outlined"
+                    className={classes.select}
+                >
+                    <InputLabel data-test-id="select-input-label">Language</InputLabel>
+                    <Select
+                        data-test-id="select"
+                        native
+                        label="Language"
+                        value={selectedLanguage}
+                        onChange={handleLanguage}
+                    >
+                        <option value="" />
+                        {languages.map((language, index) => {
+                            return (
+                                <option key={index} value={language}>
+                                    {language}
+                                </option>
+                            );
+                        })}
+                    </Select>
+                </FormControl>
+            </div>
+            {isError ? (
+                <Alert className={classes.error} severity="error">
+                    Something happened
+                </Alert>
             ) : (
-                <div>
-                    {gitHubFaIcon}
-                    <div className={classes.searchFields}>
-                        <Tooltip
-                            data-test-id="tooltip-search-text-field"
-                            title="filter by repository name and description"
-                            placement="top"
-                        >
-                            <TextField
-                                data-test-id="search-text-field"
-                                label="Search"
-                                variant="outlined"
-                                className={classes.search}
-                                onChange={handleSearch}
-                                value={search}
-                            />
-                        </Tooltip>
-                        <FormControl
-                            data-test-id="select-form-control"
-                            variant="outlined"
-                            className={classes.select}
-                        >
-                            <InputLabel data-test-id="select-input-label">Language</InputLabel>
-                            <Select
-                                data-test-id="select"
-                                native
-                                label="Language"
-                                value={selectedLanguage}
-                                onChange={handleLanguage}
-                            >
-                                <option value="" />
-                                {languages.map((language, index) => {
-                                    return (
-                                        <option key={index} value={language}>
-                                            {language}
-                                        </option>
-                                    );
-                                })}
-                            </Select>
-                        </FormControl>
-                    </div>
-                    <Repositories data-test-id="repositories" repositories={computedData} />
-                </div>
+                <Repositories
+                    data-test-id="repositories"
+                    repositories={computedData}
+                    loading={isLoading}
+                />
             )}
-        </div>
+        </React.Fragment>
     );
 };
 

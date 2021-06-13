@@ -10,4 +10,5 @@ export interface Repo {
 
 export interface RepoProps {
     repositories: Repo[];
+    loading: boolean;
 }
