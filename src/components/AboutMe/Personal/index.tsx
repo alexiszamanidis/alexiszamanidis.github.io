@@ -1,12 +1,12 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import { useQuery } from "react-query";
 import Alert from "@material-ui/lab/Alert";
 import Avatar from "@material-ui/core/Avatar";
 import { calculateAge } from "../../../utilities";
+import PersonalSkeleton from "./PersonalSkeleton";
+import { Box, Typography } from "@material-ui/core";
 import GitHub from "../../../services/GitHub/GitHub";
 import { makeStyles } from "@material-ui/core/styles";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import { Box, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
     avatar: {
@@ -42,13 +42,11 @@ const Personal: FC = () => {
     return (
         <Box mb={5}>
             {isLoading ? (
-                <Box display="flex" justifyContent="center">
-                    <CircularProgress />
-                </Box>
+                <PersonalSkeleton />
             ) : isError ? (
                 <Alert severity="error">Something happened</Alert>
             ) : (
-                <div>
+                <React.Fragment>
                     <Avatar
                         alt="Alexis Zamanidis"
                         src={data.avatar_url}
@@ -69,7 +67,7 @@ const Personal: FC = () => {
                         <Typography variant="h6">Summary</Typography>
                     </Box>
                     <Typography className={classes.bio}>{data.bio}</Typography>
-                </div>
+                </React.Fragment>
             )}
         </Box>
     );
