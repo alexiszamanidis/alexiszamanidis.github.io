@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Card from "@material-ui/core/Card";
 import { CardComponentProps } from "./types";
-import { makeStyles } from "@material-ui/core";
+import { Box, makeStyles } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -29,7 +29,7 @@ const CardComponent: FC<CardComponentProps> = ({
         <Card data-test-id="card-component" className={classes.root}>
             <CardContent>
                 <Typography data-test-id="card-component-name" color="textSecondary" gutterBottom>
-                    {name}
+                    <Box fontWeight={500}>{name}</Box>
                 </Typography>
                 <Typography data-test-id="card-component-description">{description}</Typography>
                 <Typography data-test-id="card-component-language-star-fork">

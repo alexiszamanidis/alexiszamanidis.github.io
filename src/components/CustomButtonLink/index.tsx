@@ -6,15 +6,6 @@ import { CustomButtonLinkProps } from "./types";
 const useStyles = makeStyles({
     button: {
         margin: "5px 5px 5px 5px",
-        color: "white",
-        outline: "0px solid white",
-        transition: "outline-offset 250ms ease",
-        borderRadius: "0",
-        "&:hover, &:focus": {
-            outline: "2px solid white",
-            outlineOffset: "-5px",
-            boxShadow: "2px 2px gray",
-        },
     },
 });
 
