@@ -1,20 +1,11 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./pages";
 import "./index.css";
-
-import { QueryClient, QueryClientProvider } from "react-query";
-import theme from "./theme";
-import { ThemeProvider } from "@material-ui/styles";
-import GlobalStyles from "./globalStyles";
-const queryClient = new QueryClient();
+import App from "./pages";
+import ReactDOM from "react-dom";
+import Providers from "./providers";
 
 ReactDOM.render(
-    <QueryClientProvider client={queryClient}>
-        <ThemeProvider theme={theme}>
-            <GlobalStyles />
-            <App />
-        </ThemeProvider>
-    </QueryClientProvider>,
+    <Providers>
+        <App />
+    </Providers>,
     document.getElementById("root")
 );
