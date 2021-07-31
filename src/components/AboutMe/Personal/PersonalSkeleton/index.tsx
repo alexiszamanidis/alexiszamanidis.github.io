@@ -36,7 +36,7 @@ const PersonalSkeleton: FC = () => {
             <Skeleton className={classes.avatar} variant="circle" width={250} height={250} />
             <div className={classes.personal}>
                 <div className={classes.item + " personal"}>
-                    <Typography component={"span"} variant={"body2"}>
+                    <Typography component={"span"}>
                         <Box display="flex" alignItems="center" justifyContent="center">
                             <Skeleton
                                 className={classes.skeletonItem}

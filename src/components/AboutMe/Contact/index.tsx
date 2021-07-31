@@ -37,10 +37,10 @@ const Contact: FC = () => {
                                 rel="noreferrer"
                             >
                                 <Typography component={"span"}>
-                                    <div className="contact">
-                                        <i className={classes.title + " " + item.icon}></i>
+                                    <Box display="flex">
+                                        {item.icon}
                                         {item.name}
-                                    </div>
+                                    </Box>
                                 </Typography>
                             </Link>
                         </ListItem>

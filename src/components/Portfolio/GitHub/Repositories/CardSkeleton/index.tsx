@@ -29,16 +29,16 @@ const CardSkeleton: FC<CardSkeletonProps> = ({ timeout }) => {
             <Grow in={true} timeout={timeout}>
                 <Card className={classes.skeleton}>
                     <CardContent>
-                        <Typography color="textSecondary" gutterBottom>
+                        <Typography component={"span"} color="textSecondary" gutterBottom>
                             <Skeleton width={"70%"} />
                         </Typography>
-                        <Typography component={"span"} variant={"body2"}>
+                        <Typography component={"span"}>
                             <Skeleton />
                             <Skeleton />
                             <Skeleton />
                             <Skeleton />
                         </Typography>
-                        <Typography component={"span"} variant={"body2"}>
+                        <Typography component={"span"}>
                             <Box display="flex" alignItems="center">
                                 <Skeleton className={classes.skeletonItem} width={"40%"} />
                                 <Skeleton

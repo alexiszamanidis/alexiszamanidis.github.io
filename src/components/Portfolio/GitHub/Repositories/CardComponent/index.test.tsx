@@ -38,7 +38,7 @@ describe("CardComponent", () => {
         );
         expect(cardComponentLanguageStarFork).toHaveLength(1);
         expect(cardComponentLanguageStarFork?.text()).toBe(
-            `language: ${cardComponentProps.language}  ${cardComponentProps.stargazers_count}  ${cardComponentProps.forks_count} `
+            `language: ${cardComponentProps.language} ${cardComponentProps.stargazers_count}  ${cardComponentProps.forks_count} `
         );
 
         const cardComponentButton = findByDataTestIdAttribute(

@@ -28,7 +28,7 @@ const useStyles = makeStyles({
         margin: "5px 5px 5px 0px",
         // eslint-disable-next-line
         ["@media (min-width:600px)"]: {
-            width: "30%",
+            width: "50%",
         },
     },
     select: {
@@ -36,7 +36,7 @@ const useStyles = makeStyles({
         margin: "5px 5px 5px 0px",
         // eslint-disable-next-line
         ["@media (min-width:600px)"]: {
-            width: "30%",
+            width: "50%",
         },
     },
     error: {

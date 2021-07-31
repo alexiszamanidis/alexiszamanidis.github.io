@@ -1,13 +1,15 @@
 import { ContactItem } from "./types";
+import PhoneIcon from "@material-ui/icons/Phone";
+import MailIcon from "@material-ui/icons/Mail";
 
 const contacts: ContactItem[] = [
     {
-        icon: "fa fa-phone",
+        icon: <PhoneIcon />,
         name: "+30 698-044-3908",
         link: "tel:+30698-044-3908",
     },
     {
-        icon: "fa fa-envelope",
+        icon: <MailIcon />,
         name: "alexiszamanidis@outlook.com",
         link: "mailto:alexiszamanidis@outlook.com",
     },

@@ -21,14 +21,14 @@ const Repositories: FC<RepoProps> = ({ repositories, loading }) => {
             {loading
                 ? [...Array(numberOfSkeletons)].map((skeleton, skeletonIndex) => {
                       return (
-                          <Grid item xs={12} sm={4} md={4} key={skeletonIndex}>
+                          <Grid item sm={12} md={6} lg={4} key={skeletonIndex}>
                               <CardSkeleton timeout={skeletonIndex * 500} />
                           </Grid>
                       );
                   })
                 : repositories.map((repo: Repo) => {
                       return (
-                          <Grid data-test-id="repository" item xs={12} sm={4} md={4} key={repo.id}>
+                          <Grid data-test-id="repository" item sm={12} md={6} lg={4} key={repo.id}>
                               <CardComponent
                                   data-test-id="repository-card-component"
                                   name={repo.name}

@@ -1,5 +1,5 @@
 export interface ContactItem {
-    icon: string;
+    icon: JSX.Element;
     name: string;
     link: string;
 }
