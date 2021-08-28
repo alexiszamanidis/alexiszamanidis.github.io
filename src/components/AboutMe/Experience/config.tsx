@@ -2,9 +2,19 @@ import { ExperienceItem } from "./types";
 
 const experience: ExperienceItem[] = [
     {
+        from: "Jul 2021",
+        to: "Present",
+        jobTitle: "Software Engineer",
+        company: "Upstream",
+        location: "Athens, Greece",
+        typeOfEmployee: "Remote Full-Time",
+        description: "Stack: Next.js, Node.js, PostgreSQL",
+        link: null,
+    },
+    {
         from: "Oct 2020",
-        to: "April 2021",
-        jobTitle: "Full Stack Developer, Intern",
+        to: "Apr 2021",
+        jobTitle: "Software Engineer, Intern",
         company: "ITML",
         location: "Athens, Greece",
         typeOfEmployee: "Remote Full-Time",

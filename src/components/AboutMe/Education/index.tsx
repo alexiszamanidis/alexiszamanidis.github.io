@@ -49,7 +49,7 @@ const Education: FC = () => {
             </Box>
             {education.map((item, index) => {
                 return (
-                    <Box key={index} display="flex" flexDirection="column">
+                    <Box key={index} display="flex" flexDirection="column" mb={3}>
                         <Box
                             display="flex"
                             flexDirection={matches ? "row" : "column"}
