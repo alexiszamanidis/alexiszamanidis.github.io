@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(3),
         color: theme.palette.text.secondary,
         height: "100%",
+        overflow: "hidden",
     },
 }));
 

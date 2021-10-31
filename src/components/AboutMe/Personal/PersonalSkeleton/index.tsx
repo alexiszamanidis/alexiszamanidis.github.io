@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import Skeleton from "@material-ui/lab/Skeleton";
-import { Box, Typography } from "@material-ui/core";
+import { Box, Typography, useMediaQuery } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
 
 const PersonalSkeleton: FC = () => {
     const classes = useStyles();
+    const matches = useMediaQuery((theme: any) => theme.breakpoints.up("sm"));
 
     return (
         <React.Fragment>
@@ -37,28 +38,40 @@ const PersonalSkeleton: FC = () => {
             <div className={classes.personal}>
                 <div className={classes.item + " personal"}>
                     <Typography component={"span"}>
-                        <Box display="flex" alignItems="center" justifyContent="center">
-                            <Skeleton
-                                className={classes.skeletonItem}
-                                variant="circle"
-                                width={20}
-                                height={20}
-                            />
-                            <Skeleton className={classes.skeletonItem} width={"10%"} />
-                            <Skeleton
-                                className={classes.skeletonItem}
-                                variant="circle"
-                                width={20}
-                                height={20}
-                            />
-                            <Skeleton className={classes.skeletonItem} width={"10%"} />
-                            <Skeleton
-                                className={classes.skeletonItem}
-                                variant="circle"
-                                width={20}
-                                height={20}
-                            />
-                            <Skeleton className={classes.skeletonItem} width={"10%"} />
+                        <Box
+                            display="flex"
+                            flexDirection={matches ? "row" : "column"}
+                            alignItems="center"
+                            justifyContent="center"
+                        >
+                            <Box display="flex" alignItems="center">
+                                <Skeleton
+                                    className={classes.skeletonItem}
+                                    variant="circle"
+                                    width={20}
+                                    height={20}
+                                />
+                                <Skeleton className={classes.skeletonItem} width={"80px"} />
+                            </Box>
+
+                            <Box display="flex" alignItems="center">
+                                <Skeleton
+                                    className={classes.skeletonItem}
+                                    variant="circle"
+                                    width={20}
+                                    height={20}
+                                />
+                                <Skeleton className={classes.skeletonItem} width={"80px"} />
+                            </Box>
+                            <Box display="flex" alignItems="center">
+                                <Skeleton
+                                    className={classes.skeletonItem}
+                                    variant="circle"
+                                    width={20}
+                                    height={20}
+                                />
+                                <Skeleton className={classes.skeletonItem} width={"30px"} />
+                            </Box>
                         </Box>
                     </Typography>
                 </div>
