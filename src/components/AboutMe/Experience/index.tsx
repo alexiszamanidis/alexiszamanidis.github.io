@@ -2,7 +2,8 @@ import { FC } from "react";
 import { experience } from "./config";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { Box, makeStyles, Typography } from "@material-ui/core";
+import { Box, List, ListItem, makeStyles, Typography } from "@material-ui/core";
+import { ArrowRight } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -24,6 +25,13 @@ const useStyles = makeStyles((theme) => ({
             display: "block",
             marginRight: "5px",
         },
+    },
+    details: {
+        padding: "0px 0px 0px 0px",
+    },
+    detail: {
+        padding: "0px 0px 0px 0px",
+        color: theme.palette.text.primary,
     },
 }));
 
@@ -60,6 +68,21 @@ const Experience: FC = () => {
                         <Typography className={classes.itemDescription}>
                             {item.description}
                         </Typography>
+                        <List>
+                            {item.details.map((detail, index) => {
+                                return (
+                                    <ListItem key={index} className={classes.detail}>
+                                        <ArrowRight />
+                                        <Typography component={"span"} variant={"body2"}>
+                                            <div
+                                                className="content"
+                                                dangerouslySetInnerHTML={{ __html: detail }}
+                                            ></div>
+                                        </Typography>
+                                    </ListItem>
+                                );
+                            })}
+                        </List>
                     </Box>
                 );
             })}

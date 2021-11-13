@@ -35,3 +35,7 @@ a:active {
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }
+
+.light-bold {
+    font-weight: 500;
+}

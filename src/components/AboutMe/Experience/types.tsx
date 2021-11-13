@@ -6,5 +6,6 @@ export interface ExperienceItem {
     location: string;
     typeOfEmployee: string;
     description: string;
+    details: string[];
     link: string | null;
 }

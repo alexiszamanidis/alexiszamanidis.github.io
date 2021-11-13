@@ -8,7 +8,14 @@ const experience: ExperienceItem[] = [
         company: "Upstream",
         location: "Athens, Greece",
         typeOfEmployee: "Remote Full-Time",
-        description: "Stack: Next.js, Node.js, PostgreSQL",
+        description:
+            "I have become a member of the Plan Migration team, which is a subgroup of GUI",
+        details: [
+            "<span class='light-bold'>Stack</span>: Next.js, Node.js, PostgreSQL",
+            "<span class='light-bold'>Maintenance</span> of the websites of TIM and OI, which are Brazil’s <span class='light-bold'>mobile network operators</span>",
+            "<span class='light-bold'>Total Overhaul</span> of the TIM website",
+            "Participating in the <span class='light-bold'>creation of reusable components</span> for the <span class='light-bold'>company’s core component library</span>",
+        ],
         link: null,
     },
     {
@@ -19,9 +26,12 @@ const experience: ExperienceItem[] = [
         location: "Athens, Greece",
         typeOfEmployee: "Remote Full-Time",
         description:
-            "I built a Web Application which will be used by Doctors in their daily life  with main functionalities of automating Visits, Prescriptions and Referrals. " +
-            "But also it has other very useful functionalities such as Calendar, Pdf Generator for handwritten Prescriptions, Medicines Statistics. " +
-            "Its basic functionality is based on the API provided by IDIKA which is the official provider of e-Prescription in Greece.",
+            "I was given to implement a solo project from scratch. The project that I built was a subscription RESTful Web App for " +
+            "Doctors that will help them to automate their Visits, Referrals and Prescriptions for their Patients.",
+        details: [
+            "<span class='light-bold'>Stack</span>: React.js, Spring Boot, MySQL",
+            "<span class='light-bold'>Fully integrated System with IDIKA</span>, which is the <span class='light-bold'>Provider of e-Prescription in Greece</span>",
+        ],
         link: null,
     },
 ];
