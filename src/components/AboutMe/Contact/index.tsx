@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
     link: {
         color: theme.palette.text.primary,
     },
+    icon: {
+        marginRight: "3px",
+    },
 }));
 
 const Contact: FC = () => {
@@ -38,7 +41,7 @@ const Contact: FC = () => {
                             >
                                 <Typography component={"span"}>
                                     <Box display="flex">
-                                        {item.icon}
+                                        <div className={classes.icon}>{item.icon}</div>
                                         {item.name}
                                     </Box>
                                 </Typography>

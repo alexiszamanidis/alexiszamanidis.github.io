@@ -3,7 +3,6 @@ import { experience } from "./config";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { Box, List, ListItem, makeStyles, Typography } from "@material-ui/core";
-import { ArrowRight } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -30,8 +29,12 @@ const useStyles = makeStyles((theme) => ({
         padding: "0px 0px 0px 0px",
     },
     detail: {
+        margin: "2px 0px",
         padding: "0px 0px 0px 0px",
         color: theme.palette.text.primary,
+    },
+    bulletPoint: {
+        margin: "0px 5px",
     },
 }));
 
@@ -72,7 +75,7 @@ const Experience: FC = () => {
                             {item.details.map((detail, index) => {
                                 return (
                                     <ListItem key={index} className={classes.detail}>
-                                        <ArrowRight />
+                                        <div className={classes.bulletPoint}>•</div>
                                         <Typography component={"span"} variant={"body2"}>
                                             <div
                                                 className="content"

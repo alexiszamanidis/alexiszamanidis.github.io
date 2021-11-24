@@ -2,7 +2,7 @@ import { PassionateAboutItem } from "./types";
 
 const passionateAbout: PassionateAboutItem[] = [
     {
-        name: "Full Stack Development mainly with React.js, Spring Boot and MySQL",
+        name: "Web Development",
     },
     {
         name: "Machine Learning - Data Mining",
