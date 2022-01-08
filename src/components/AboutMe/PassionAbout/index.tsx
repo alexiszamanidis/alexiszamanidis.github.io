@@ -12,6 +12,13 @@ const useStyles = makeStyles((theme) => ({
     item: {
         padding: "0px 0px 0px 0px",
         color: theme.palette.text.primary,
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "baseline",
+    },
+    bulletPoint: {
+        margin: "0px 5px",
+        fontSize: "15px",
     },
 }));
 
@@ -27,7 +34,8 @@ const PassionateAbout: FC = () => {
                 {passionateAbout.map((item, index) => {
                     return (
                         <ListItem key={index} className={classes.item}>
-                            <Typography>{`${index + 1}. ${item.name}`}</Typography>
+                            <div className={classes.bulletPoint}>○</div>
+                            <Typography>{item.name}</Typography>
                         </ListItem>
                     );
                 })}

@@ -80,7 +80,7 @@ const Experience: FC = () => {
                                 return (
                                     <ListItem key={index} className={classes.detail}>
                                         <div className={classes.bulletPoint}>○</div>
-                                        <Typography component={"span"} variant={"body2"}>
+                                        <Typography>
                                             <div
                                                 className="content"
                                                 dangerouslySetInnerHTML={{ __html: detail }}

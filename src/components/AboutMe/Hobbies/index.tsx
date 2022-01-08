@@ -10,8 +10,14 @@ const useStyles = makeStyles((theme) => ({
         padding: "0px 0px 0px 0px",
     },
     item: {
+        marginBottom: "5px",
         padding: "0px 0px 0px 0px",
         color: theme.palette.text.primary,
+        display: "flex",
+        flexDirection: "row",
+    },
+    icon: {
+        marginRight: "3px",
     },
 }));
 
@@ -27,7 +33,8 @@ const Hobbies: FC = () => {
                 {hobbies.map((item, index) => {
                     return (
                         <ListItem key={index} className={classes.item}>
-                            <Typography>{`${index + 1}. ${item.name}`}</Typography>
+                            <div className={classes.icon}>{item.icon}</div>
+                            <Typography>{item.name}</Typography>
                         </ListItem>
                     );
                 })}
