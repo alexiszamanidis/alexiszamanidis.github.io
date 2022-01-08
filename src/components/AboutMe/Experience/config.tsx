@@ -11,7 +11,7 @@ const experience: ExperienceItem[] = [
         description:
             "I have become a member of the Plan Migration team, which is a subgroup of GUI",
         details: [
-            "<span class='light-bold'>Maintenance</span> of the websites of TIM and OI, which are Brazil’s <span class='light-bold'>mobile network operators</span>",
+            "<span class='light-bold'>Maintaining</span> the websites of TIM and OI, which are Brazil’s <span class='light-bold'>mobile network operators</span>",
             "<span class='light-bold'>Total Overhaul</span> of the TIM website",
             "Implementing <span class='light-bold'>reusable components</span> for the <span class='light-bold'>company’s core component library</span>",
         ],

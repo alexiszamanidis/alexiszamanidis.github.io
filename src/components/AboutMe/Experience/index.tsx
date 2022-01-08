@@ -32,9 +32,13 @@ const useStyles = makeStyles((theme) => ({
         margin: "2px 0px",
         padding: "0px 0px 0px 0px",
         color: theme.palette.text.primary,
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "baseline",
     },
     bulletPoint: {
         margin: "0px 5px",
+        fontSize: "15px",
     },
 }));
 
@@ -75,7 +79,7 @@ const Experience: FC = () => {
                             {item.details.map((detail, index) => {
                                 return (
                                     <ListItem key={index} className={classes.detail}>
-                                        <div className={classes.bulletPoint}>•</div>
+                                        <div className={classes.bulletPoint}>○</div>
                                         <Typography component={"span"} variant={"body2"}>
                                             <div
                                                 className="content"
