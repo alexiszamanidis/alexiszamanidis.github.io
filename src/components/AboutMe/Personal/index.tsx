@@ -10,6 +10,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import PersonIcon from "@material-ui/icons/Person";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import CakeIcon from "@material-ui/icons/Cake";
+import { summary } from "./config";
 
 const useStyles = makeStyles((theme) => ({
     avatar: {
@@ -81,7 +82,7 @@ const Personal: FC = () => {
                     <Box mb={1} fontWeight="fontWeightBold" className={classes.title}>
                         <Typography variant="h6">Summary</Typography>
                     </Box>
-                    <Typography className={classes.bio}>{data.bio}</Typography>
+                    <Typography className={classes.bio}>{summary}</Typography>
                 </React.Fragment>
             )}
         </Box>
