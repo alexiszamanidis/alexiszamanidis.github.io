@@ -2,7 +2,8 @@ import { FC } from "react";
 import { experience } from "./config";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { Box, List, ListItem, makeStyles, Typography } from "@material-ui/core";
+import LinkIcon from "@material-ui/icons/Link";
+import { Box, List, ListItem, makeStyles, Typography, Link } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -24,6 +25,12 @@ const useStyles = makeStyles((theme) => ({
             display: "block",
             marginRight: "5px",
         },
+    },
+    companyAndLocation: {
+        marginRight: "5px",
+    },
+    itemLinkIcon: {
+        color: "black",
     },
     details: {
         padding: "0px 0px 0px 0px",
@@ -66,7 +73,15 @@ const Experience: FC = () => {
                                     className={classes.item}
                                 >{`${item.jobTitle} `}</Typography>
                                 <Typography className={classes.itemSlash}>{" | "}</Typography>
-                                <Typography>{`${item.company} - ${item.location} (${item.typeOfEmployee})`}</Typography>
+                                <Typography
+                                    className={classes.companyAndLocation}
+                                >{`${item.company} - ${item.location} (${item.typeOfEmployee})`}</Typography>
+
+                                {item.link && (
+                                    <Link href={item.link} target="_blank" rel="noreferrer">
+                                        <LinkIcon className={classes.itemLinkIcon} />
+                                    </Link>
+                                )}
                             </Box>
                             <Typography className={classes.itemDuration}>
                                 {item.from} - {item.to}
