@@ -77,6 +77,8 @@ const CardComponent: FC<CardComponentProps> = ({
                             src={"/images/ForkIcon.png"}
                             alt="GitHub Fork Icon"
                             className={classes.icon}
+                            // @ts-ignore
+                            fetchPriority="high"
                         />
                         {` ${forks_count} `}
                     </div>
